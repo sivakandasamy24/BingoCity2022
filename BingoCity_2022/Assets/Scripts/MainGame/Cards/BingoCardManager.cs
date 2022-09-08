@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace BingoCity
@@ -29,6 +30,8 @@ namespace BingoCity
         };
 
         private Dictionary<int, List<int>> _itemPatterns = new Dictionary<int, List<int>>();
+        
+        private UIManager _uiManager;
 
         private void AddListeners(bool canEnable)
         {
@@ -46,8 +49,14 @@ namespace BingoCity
 
         private void Start()
         {
-            _itemPatterns.Add(0, _itemPatternList1);
-            _itemPatterns.Add(1, _itemPatternList2);
+            _uiManager = GetComponent<UIManager>();
+            
+            for (var i = 0; i < _uiManager.GameConfigData.ItemPattern.Count; i++)
+            {
+                var patternString = _uiManager.GameConfigData.ItemPattern[i];
+                _itemPatterns.Add(i, patternString.Split(",").Select(int.Parse).ToList());
+
+            }
             ResetGame();
         }
 

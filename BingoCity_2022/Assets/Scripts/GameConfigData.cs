@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace BingoCity
@@ -5,8 +6,12 @@ namespace BingoCity
     [CreateAssetMenu(menuName = "GameConfigData", fileName = "GameConfigData", order = 0)]
     public class GameConfigData : ScriptableObject
     {
-        [SerializeField] public int maxNumberOfBallPerClick = 2;
+        [SerializeField] private int maxNumberOfBallPerClick = 2;
+        [SerializeField] private List<string> itemPattern;
 
+        public List<string> ItemPattern => itemPattern;
         public int MaxNumberOfBallPerClick => maxNumberOfBallPerClick;
+        
+        
     }
 }
