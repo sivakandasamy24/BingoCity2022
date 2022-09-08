@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6325633f17134aa0a6cb278aa2cd072e, type: 3}
   m_Name: CardConfigData
   m_EditorClassIdentifier: 
-  maxNumberOfBallPerClick: 3
   itemPattern:
   - 0,0,0,3,0,1,0,0,3,0,0,0,0,0,0,0,5,5,0,0,0,5,5,0,0
   - 0,0,2,0,0,3,0,0,0,0,3,0,0,0,0,0,0,0,4,4,0,0,0,0,0
   - 0,0,4,4,0,0,0,0,0,0,0,0,0,0,1,5,5,0,0,0,5,5,0,0,0
+  maxNumberOfBallPerClick: 5
+  maxNumberRoll: 5
+  buyPopupMaxWindowCount: 1
+  buyPopupAutoTimer: 1
+  buyAdditionalRollCount: 2
