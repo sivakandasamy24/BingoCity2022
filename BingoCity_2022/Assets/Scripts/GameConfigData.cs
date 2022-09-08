@@ -14,13 +14,14 @@ namespace BingoCity
         [SerializeField] private int buyAdditionalRollCount = 2; //GS additional click buy count
         [SerializeField] private int cardSpanCount = 60; //GS additional click buy count
 
-        public int CardSpanCount => cardSpanCount;
-
-        public int MaxNumberRoll => maxNumberRoll;
+       
         public int BuyPopupMaxWindowCount => buyPopupMaxWindowCount;
-        public int BuyAdditionalRollCount => buyAdditionalRollCount;
         public List<string> ItemPattern => itemPattern;
-        public int MaxNumberOfBallPerClick => maxNumberOfBallPerClick;
         public int BuyPopupAutoTimer => buyPopupAutoTimer;
+        
+        public int BuyAdditionalRollCount => GameConfigs.LoadDebugConfigPage?GameConfigs.buyAdditionalRollCount:buyAdditionalRollCount;
+        public int CardSpanCount => GameConfigs.LoadDebugConfigPage?GameConfigs.cardSpanCount:cardSpanCount;
+        public int MaxNumberRoll => GameConfigs.LoadDebugConfigPage?GameConfigs.maxNumberRoll:maxNumberRoll;
+        public int MaxNumberOfBallPerClick => GameConfigs.LoadDebugConfigPage?GameConfigs.maxNumberOfBallPerClick:maxNumberOfBallPerClick;
     }
 }

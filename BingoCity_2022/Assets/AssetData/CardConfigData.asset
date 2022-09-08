@@ -16,9 +16,9 @@ MonoBehaviour:
   - 0,0,0,3,0,1,0,0,3,0,0,0,0,0,0,0,5,5,0,0,0,5,5,0,0
   - 0,0,2,0,0,3,0,0,0,0,3,0,0,0,0,0,0,0,4,4,0,0,0,0,0
   - 0,0,4,4,0,0,0,0,0,0,0,0,0,0,1,5,5,0,0,0,5,5,0,0,0
-  maxNumberOfBallPerClick: 5
+  maxNumberOfBallPerClick: 3
   maxNumberRoll: 5
   buyPopupMaxWindowCount: 1
   buyPopupAutoTimer: 1
   buyAdditionalRollCount: 2
-  cardSpanCount: 75
+  cardSpanCount: 60

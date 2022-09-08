@@ -109,6 +109,7 @@ namespace BingoCity
 
         public void OnBackButton(int loadSceneIndex)
         {
+            GameConfigs.LoadDebugConfigPage = false;
             SceneManager.LoadScene(loadSceneIndex);
         }
 
