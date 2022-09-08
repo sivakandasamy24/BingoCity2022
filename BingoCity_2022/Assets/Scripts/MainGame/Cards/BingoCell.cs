@@ -53,7 +53,7 @@ namespace BingoCity
             _isDaubed = isDaubed;
             cellBg.SetActive(!isDaubed);
             cellNumberText.gameObject.SetActive(!isDaubed);
-            debugCellIdTxt.gameObject.SetActive(!isDaubed);
+            //debugCellIdTxt.gameObject.SetActive(!isDaubed);
             daubedIcon.gameObject.SetActive(isDaubed);
         }
     }
