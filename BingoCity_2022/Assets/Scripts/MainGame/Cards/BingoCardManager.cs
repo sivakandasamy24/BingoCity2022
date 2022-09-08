@@ -11,24 +11,6 @@ namespace BingoCity
 
         private readonly Dictionary<int, BingoCard> bingoCards = new Dictionary<int, BingoCard>();
 
-        private List<int> _itemPatternList1 = new List<int>()
-        {
-            0, 0, 0, 3, 0,
-            1, 0, 0, 3, 0,
-            0, 0, 0, 0, 0,
-            0, 5, 5, 0, 0,
-            0, 5, 5, 0, 0,
-        };
-
-        private List<int> _itemPatternList2 = new List<int>()
-        {
-            0, 0, 2, 0, 0,
-            3, 0, 0, 0, 0,
-            3, 0, 0, 0, 0,
-            0, 0, 0, 4, 4,
-            0, 0, 0, 0, 0,
-        };
-
         private Dictionary<int, List<int>> _itemPatterns = new Dictionary<int, List<int>>();
         
         private UIManager _uiManager;

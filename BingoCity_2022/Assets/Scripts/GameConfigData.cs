@@ -12,6 +12,9 @@ namespace BingoCity
         [SerializeField] private int buyPopupMaxWindowCount = 1; //GS additional click buy count
         [SerializeField] private int buyPopupAutoTimer = 1; // GS autoTimerWaiting timerIn sec
         [SerializeField] private int buyAdditionalRollCount = 2; //GS additional click buy count
+        [SerializeField] private int cardSpanCount = 60; //GS additional click buy count
+
+        public int CardSpanCount => cardSpanCount;
 
         public int MaxNumberRoll => maxNumberRoll;
         public int BuyPopupMaxWindowCount => buyPopupMaxWindowCount;

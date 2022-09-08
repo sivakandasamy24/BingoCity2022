@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,8 +21,14 @@ namespace BingoCity
         private int _autoPopupShowCount;
         public GameConfigData GameConfigData => gameConfigData;
 
+        private void Awake()
+        {
+            Utils.ballCallingSpan = gameConfigData.CardSpanCount;
+        }
+
         private void Start()
         {
+            
             InitData();
         }
 

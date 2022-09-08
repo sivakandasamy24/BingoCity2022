@@ -21,3 +21,4 @@ MonoBehaviour:
   buyPopupMaxWindowCount: 1
   buyPopupAutoTimer: 1
   buyAdditionalRollCount: 2
+  cardSpanCount: 75

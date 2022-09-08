@@ -7,6 +7,9 @@ namespace BingoCity
     
     public static class ListExtensions
     {
+        public static List<T> GetClone<T>(this List<T> source) {
+            return source.GetRange(0, source.Count);
+        }
         public static void Shuffle<T>(this IList<T> list)
         {
             int n = list.Count;

@@ -17,6 +17,12 @@ namespace BingoCity
         private CardItemManager _itemManager;
         private readonly Dictionary<int, int> _itemPatternData = new ();
 
+        private  List<int> _bRowCards;
+        private  List<int> _iRowCards;
+        private  List<int> _nRowCards;
+        private  List<int> _gRowCards;
+        private  List<int> _oRowCards;
+
         public void SetData(int cardId,List<int> itemPattern)
         {
             _cardId = cardId;
@@ -43,14 +49,51 @@ namespace BingoCity
             }
             
         }
+        private int GetUniqueCardRandomNumber(int cellId)
+        {
+            var randNumber = 0;
+            var selectedRowList = _bRowCards;
 
+            switch (cellId)
+            {
+                case >= 0 and <= 4:
+                    selectedRowList = _bRowCards;
+                    break;
+                case >= 5 and <= 9:
+                    selectedRowList = _iRowCards;
+                    break;
+                case >= 10 and <= 14:
+                    selectedRowList = _nRowCards;
+                    break;
+                case >= 15 and <= 19:
+                    selectedRowList = _gRowCards;
+                    break;
+                case >= 20:
+                    selectedRowList = _oRowCards;
+                    break;
+            }
+
+            randNumber = selectedRowList.GetAndRemoveRandomValue();
+            
+            return randNumber;
+        }
+
+        private void GetCardRowsClone()
+        {
+            _bRowCards = Utils.BCardNumbers.GetClone();
+            _iRowCards = Utils.ICardNumbers.GetClone();
+            _nRowCards = Utils.NCardNumbers.GetClone();
+            _gRowCards = Utils.GCardNumbers.GetClone();
+            _oRowCards = Utils.OCardNumbers.GetClone();
+        }
         private void GenerateCardNumbers()
         {
+            GetCardRowsClone();
             ResetCard();
             for (int i = 0; i < bingoCells.Count; i++)
             {
                 var bingoCell = bingoCells[i];
-                var randNumber = Utils.GetUniqueCardRandomNumber(i);
+                var randNumber = GetUniqueCardRandomNumber(i);
                 if (bingoCell != null)
                 {
                     if (_itemPattern[i] > 0)

@@ -5,54 +5,59 @@ namespace BingoCity
 {
     public class Utils
     {
-        private static readonly List<int> RandomList = new List<int>();
-        private static readonly List<int> BallCallingArr = new List<int>();
+        private static readonly List<int> RandomList = new ();
+        
+        
+        private static readonly List<int> BallCallingList = new();
+        public static  List<int> BCardNumbers = new();
+        public static  List<int> ICardNumbers = new();
+        public static  List<int> NCardNumbers = new();
+        public static  List<int> GCardNumbers = new();
+        public static  List<int> OCardNumbers = new();
 
-        public static int GetUniqueCardRandomNumber(int cellId)
+        public static int ballCallingSpan;
+
+        private static void GenerateCardsBasedOnSpan()
         {
-            var randNumber = 0;
-            var minNumber = 1;
-            var maxNumber = 15;
+            BCardNumbers = GetNumbers(1, 15);
+            ICardNumbers = GetNumbers(16, 30);
+            NCardNumbers = GetNumbers(31, 45);
+            GCardNumbers = GetNumbers(46, 60);
+            OCardNumbers = GetNumbers(61, 75);
 
-            switch (cellId)
-            {
-                case >= 0 and <= 4:
-                    minNumber = 1;
-                    maxNumber = 15;
-                    break;
-                case >= 5 and <= 9:
-                    minNumber = 16;
-                    maxNumber = 30;
-                    break;
-                case >= 10 and <= 14:
-                    minNumber = 31;
-                    maxNumber = 45;
-                    break;
-                case >= 15 and <= 19:
-                    minNumber = 46;
-                    maxNumber = 60;
-                    break;
-                case >= 20:
-                    minNumber = 61;
-                    maxNumber = 75;
-                    break;
-            }
 
-            randNumber = Random.Range(minNumber, maxNumber);
-            while (RandomList.Contains(randNumber))
-            {
-                randNumber = Random.Range(minNumber, maxNumber);
-            }
-
-            RandomList.Add(randNumber);
-            return randNumber;
+            GetBallCallingSpanList();
         }
+
+        private static void GetBallCallingSpanList()
+        {
+            BallCallingList.AddRange( BCardNumbers);
+            BallCallingList.AddRange( ICardNumbers);
+            BallCallingList.AddRange( NCardNumbers);
+            BallCallingList.AddRange( GCardNumbers);
+            BallCallingList.AddRange( OCardNumbers);
+        }
+
+        private static List<int> GetNumbers(int minNumber, int maxNumber)
+        {
+            var generatedNumbers = new List<int>();
+            for (int i = minNumber; i < maxNumber + 1; i++)
+            {
+                generatedNumbers.Add(i);
+            }
+
+            generatedNumbers.Shuffle();
+
+            var spawnValue = ballCallingSpan / 5;
+            return generatedNumbers.GetRange(0, spawnValue);
+        }
+        
 
         public static int GetRandUnCalledBallNumber()
         {
-            if (BallCallingArr.Count < 1) ResetBallNumbers();
+            if (BallCallingList.Count < 1) GetBallCallingSpanList();
 
-            var randNumber = BallCallingArr.GetAndRemoveRandomValue();
+            var randNumber = BallCallingList.GetAndRemoveRandomValue();
             return randNumber;
         }
 
@@ -75,19 +80,16 @@ namespace BingoCity
 
         public static void ResetGameData()
         {
+            BCardNumbers.Clear();
+            ICardNumbers.Clear();
+            NCardNumbers.Clear();
+            GCardNumbers.Clear();
+            OCardNumbers.Clear();
+            BallCallingList.Clear();
             RandomList.Clear();
-            ResetBallNumbers();
-        }
-
-        private static void ResetBallNumbers()
-        {
-            BallCallingArr.Clear();
-            for (var i = 1; i < 76; i++)
-            {
-                BallCallingArr.Add(i);
-            }
-
-            BallCallingArr.Shuffle();
+            BallCallingList.Clear();
+            
+            GenerateCardsBasedOnSpan();
         }
     }
 }
