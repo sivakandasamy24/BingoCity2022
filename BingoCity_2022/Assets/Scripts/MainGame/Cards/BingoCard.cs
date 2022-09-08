@@ -12,16 +12,36 @@ namespace BingoCity
 
         private int _cardId;
         private int _isBingoCalled;
-        private readonly Dictionary<int, BingoCell> _bingoCells = new Dictionary<int, BingoCell>();
+        private readonly Dictionary<int, BingoCell> _bingoCells = new ();
         private List<int> _itemPattern;
         private CardItemManager _itemManager;
+        private readonly Dictionary<int, int> _itemPatternData = new ();
 
         public void SetData(int cardId,List<int> itemPattern)
         {
             _cardId = cardId;
             _itemPattern = itemPattern;
             _itemManager = GetComponent<CardItemManager>();
+            GetItemPatternData();
             GenerateCardNumbers();
+        }
+
+        private void GetItemPatternData()
+        {
+            foreach (var patternId in _itemPattern)
+            {
+                if(patternId<1) continue;
+                
+                if (_itemPatternData.ContainsKey(patternId))
+                {
+                    _itemPatternData[patternId]++;
+                }
+                else
+                {
+                    _itemPatternData.Add(patternId,1);
+                }
+            }
+            
         }
 
         private void GenerateCardNumbers()
@@ -57,6 +77,21 @@ namespace BingoCity
                 var bingoCell = _bingoCells[ballNumber];
                 if (bingoCell == null || bingoCell.IsDaubed) continue;
 
+                var cellId = bingoCell.CellId;
+                var daubedPatternId = _itemPattern[cellId];
+                if (daubedPatternId > 0)
+                {
+                    var pattenRevealCount = _itemPatternData[daubedPatternId];
+                    if (pattenRevealCount > 0)
+                    {
+                        _itemPatternData[daubedPatternId]--;
+                        if (_itemPatternData[daubedPatternId] <= 0)
+                        {
+                            _itemManager.RevealItem(daubedPatternId);
+                        }
+                    }
+                    
+                }
                 bingoCell.DoMarkCellAsDaub();
                 _bingoCells.Remove(ballNumber);
             }

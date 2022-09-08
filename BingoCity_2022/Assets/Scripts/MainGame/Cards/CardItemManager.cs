@@ -8,6 +8,7 @@ namespace BingoCity
     public class CardItemManager : MonoBehaviour
     {
         [SerializeField] private List<ItemContainers> itemContainers;
+        [SerializeField] private string revealAnimName;
 
         private void Awake()
         {
@@ -22,14 +23,27 @@ namespace BingoCity
             }
         }
 
+        public void RevealItem(int itemId)
+        {
+            var itemContainer = itemContainers.Find(x => x.PatternId == itemId);
+            if (itemContainer != null )
+            {
+                var animator   = itemContainer.ItemParent.GetComponent<Animator>();
+                if (animator != null)
+                {
+                    animator.Play(revealAnimName);
+                }
+            }
+
+        }
         public void ResetItems()
         {
             SetItemVisible(false);
         }
 
-        public void SetItemPosition(int patternId, Vector2 itemCellPosition)
+        public void SetItemPosition(int itemId, Vector2 itemCellPosition)
         {
-            var itemContainer = itemContainers.Find(x => x.PatternId == patternId);
+            var itemContainer = itemContainers.Find(x => x.PatternId == itemId);
             if (itemContainer != null && !itemContainer.ItemParent.activeSelf)
             {
                 itemContainer.ItemParent.GetComponent<RectTransform>().anchoredPosition = itemCellPosition;

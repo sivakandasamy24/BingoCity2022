@@ -423,12 +423,12 @@ GameObject:
   - component: {fileID: 8437113189807436606}
   - component: {fileID: 1899730836536195018}
   m_Layer: 5
-  m_Name: InvButton
+  m_Name: InvUserClickButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1497689590108323701
 RectTransform:
   m_ObjectHideFlags: 0
