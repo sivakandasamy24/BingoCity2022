@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2595312970971609444}
+  - component: {fileID: 7747939838035838045}
   m_Layer: 5
   m_Name: CharacterCard
   m_TagString: Untagged
@@ -37,6 +38,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7747939838035838045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2595312970971609445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75a2e4d25bb9e47a3975ebdb34c2843f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RatingGameObjects:
+  - {fileID: 2595312972515827761}
+  - {fileID: 2595312972308468691}
+  - {fileID: 2595312971317162146}
+  Character: {fileID: 2595312972641296595}
+  CoinCount: {fileID: 2595312973030942540}
+  Tokens: {fileID: 2595312971590106106}
 --- !u!1 &2595312971317162146
 GameObject:
   m_ObjectHideFlags: 0
