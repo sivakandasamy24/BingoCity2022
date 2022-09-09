@@ -11,6 +11,7 @@ public static class GameConfigs
     public static int maxNumberRoll;
     public static int maxNumberOfBallPerClick;
     public static int buyAdditionalRollCount;
+    public static int timerDuration;
     //public static int LoadDebugConfig;
 
     public static float BingoAnimPlayTime;

@@ -21,12 +21,12 @@ namespace BingoCity
 
        
         public List<int> CoinReward => coinReward;
-        public int TimerDuration => timerDuration;
         public int RaidTokenCapCount => raidTokenCapCount;
         public int BuyPopupMaxWindowCount => buyPopupMaxWindowCount;
         public List<string> ItemPattern => itemPattern;
         public int BuyPopupAutoTimer => buyPopupAutoTimer;
         
+        public int TimerDuration => GameConfigs.LoadDebugConfigPage?GameConfigs.timerDuration:timerDuration;
         public int BuyAdditionalRollCount => GameConfigs.LoadDebugConfigPage?GameConfigs.buyAdditionalRollCount:buyAdditionalRollCount;
         public int CardSpanCount => GameConfigs.LoadDebugConfigPage?GameConfigs.cardSpanCount:cardSpanCount;
         public int MaxNumberRoll => GameConfigs.LoadDebugConfigPage?GameConfigs.maxNumberRoll:maxNumberRoll;

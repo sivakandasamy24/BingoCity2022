@@ -10,6 +10,7 @@ namespace BingoCity
         [SerializeField] private TMP_InputField maxNumberRoll;
         [SerializeField] private TMP_InputField maxNumberOfBallPerClick;
         [SerializeField] private TMP_InputField buyAdditionalRollCount;
+        [SerializeField] private TMP_InputField timerDuration;
         public void LoadScene(int loadSceneIndex)
         {
             GameConfigs.LoadDebugConfigPage = true;
@@ -17,6 +18,7 @@ namespace BingoCity
             GameConfigs.maxNumberRoll = int.Parse(maxNumberRoll.text);
             GameConfigs.maxNumberOfBallPerClick = int.Parse(maxNumberOfBallPerClick.text);
             GameConfigs.buyAdditionalRollCount = int.Parse(buyAdditionalRollCount.text);
+            GameConfigs.timerDuration = int.Parse(timerDuration.text);
 
             SceneManager.LoadScene(loadSceneIndex);
         }
