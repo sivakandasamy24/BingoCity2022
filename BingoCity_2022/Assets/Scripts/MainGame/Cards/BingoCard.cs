@@ -8,6 +8,7 @@ namespace BingoCity
     public class BingoCard : MonoBehaviour
     {
         [SerializeField] private List<BingoCell> bingoCells;
+        [SerializeField] private GameObject bingoAnimation;
         
 
         private int _cardId;
@@ -23,6 +24,7 @@ namespace BingoCity
         private  List<int> _gRowCards;
         private  List<int> _oRowCards;
         private  readonly Dictionary<string, List<int>> _winBingoData = new();
+       
 
         public void SetData(int cardId,List<int> itemPattern)
         {
@@ -177,15 +179,23 @@ namespace BingoCity
 
         private void ShowBingoIconOnCell(List<int> winBingoCells)
         {
+            PlayBingoAnimation();
             foreach (var cellsId in winBingoCells)
             {
                 bingoCells[cellsId].ShowWinBingoIcon();
             }
             
         }
+
+        private void PlayBingoAnimation()
+        {
+            bingoAnimation.SetActive(true);
+            bingoAnimation.GetComponent<Animator>().Play("Bingo", -1,0f);
+        }
         
         private void ResetCard()
         {
+            bingoAnimation.SetActive(false);
             _winBingoData.Clear();
             _bingoCells.Clear();
             _itemManager.ResetItems();
