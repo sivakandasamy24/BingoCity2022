@@ -12,6 +12,8 @@ public static class GameConfigs
     public static int buyAdditionalRollCount;
     //public static int LoadDebugConfig;
 
+    public static float BingoAnimPlayTime;
+
     public enum BingoLetters
     {
         BRow = 'B',

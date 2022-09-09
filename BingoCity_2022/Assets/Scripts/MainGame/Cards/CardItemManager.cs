@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,17 +26,22 @@ namespace BingoCity
 
         public void RevealItem(int itemId)
         {
-            var itemContainer = itemContainers.Find(x => x.PatternId == itemId);
-            if (itemContainer != null )
-            {
-                var animator   = itemContainer.ItemParent.GetComponent<Animator>();
-                if (animator != null)
+            Observable.ReturnUnit()
+                .Delay(TimeSpan.FromSeconds(0.5))
+                .Do(_ =>
                 {
-                    animator.Play(revealAnimName);
-                }
-            }
-
+                    var itemContainer = itemContainers.Find(x => x.PatternId == itemId);
+                    if (itemContainer != null)
+                    {
+                        var animator = itemContainer.ItemParent.GetComponent<Animator>();
+                        if (animator != null)
+                        {
+                            animator.Play(revealAnimName);
+                        }
+                    }
+                }).Subscribe().AddTo(this);
         }
+
         public void ResetItems()
         {
             SetItemVisible(false);
@@ -58,7 +64,7 @@ namespace BingoCity
         [SerializeField] private int patternId;
         [SerializeField] private GameObject itemParent;
         [SerializeField] private Image itemImage;
-        
+
         public int PatternId => patternId;
         public GameObject ItemParent => itemParent;
         public Image ItemImage => itemImage;

@@ -1,12 +1,14 @@
 using System;
+using System.Collections;
 using TMPro;
+using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace BingoCity
 {
-    public class UIManager:MonoBehaviour
+    public class UIManager : MonoBehaviour
     {
         [SerializeField] private GameConfigData gameConfigData;
         [SerializeField] private TextMeshProUGUI rollCountText;
@@ -15,7 +17,6 @@ namespace BingoCity
         [SerializeField] private GameObject buyRollPopup;
         [SerializeField] private GameObject summaryPopup;
         [SerializeField] private GameObject roundOver;
-
 
         private int _currentRollCount;
         private int _autoPopupShowCount;
@@ -28,7 +29,6 @@ namespace BingoCity
 
         private void Start()
         {
-            
             InitData();
         }
 
@@ -54,30 +54,50 @@ namespace BingoCity
             if (_autoPopupShowCount > 0)
             {
                 //startTimerToShowBuyPopup
-                Invoke(nameof(ShowBuyRollCountPopup),gameConfigData.BuyPopupAutoTimer);
+                StartCoroutine(ShowBuyRollCountPopup());
             }
             else
             {
-                ShowGameOverPopup();
+                StartCoroutine(ShowGameOverPopup());
             }
         }
 
         private void ShowGameSummaryPopup()
         {
-            
             popupParent.gameObject.SetActive(true);
             summaryPopup.SetActive(true);
         }
 
-        private void ShowGameOverPopup()
+        private IEnumerator ShowGameOverPopup()
         {
-            roundOver.SetActive(true);
-            Invoke(nameof(ShowGameSummaryPopup),3f);
+            yield return new WaitForSeconds(0.5f); //daubAnimation delay
+
+            print($"--time--ShowGameOverPopup {GameConfigs.BingoAnimPlayTime}");
+            Observable.ReturnUnit()
+                .Delay(TimeSpan.FromSeconds(GameConfigs.BingoAnimPlayTime <= 0 ? 0.75f : GameConfigs.BingoAnimPlayTime))
+                .Do(_ => roundOver.SetActive(true))
+                .Delay(TimeSpan.FromSeconds(1))
+                .Do(_ => ShowGameSummaryPopup())
+                .Subscribe()
+                .AddTo(this);
         }
-        private void ShowBuyRollCountPopup()
+
+        private IEnumerator ShowBuyRollCountPopup()
         {
-            popupParent.gameObject.SetActive(true);
-            buyRollPopup.SetActive(true);
+            yield return new WaitForSeconds(0.5f); ////daubAnimation delay
+
+            print(
+                $"--time--ShowBuyRollCountPopup {GameConfigs.BingoAnimPlayTime} -- {gameConfigData.BuyPopupAutoTimer}");
+
+            Observable.ReturnUnit()
+                .Delay(TimeSpan.FromSeconds(GameConfigs.BingoAnimPlayTime + gameConfigData.BuyPopupAutoTimer + 1))
+                .Do(_ =>
+                {
+                    print($"--time--ShowBuy ENABLE--");
+                    popupParent.gameObject.SetActive(true);
+                    buyRollPopup.SetActive(true);
+                })
+                .Subscribe().AddTo(this);
         }
 
         private void HideBuyRollCountPopup()
@@ -85,11 +105,10 @@ namespace BingoCity
             popupParent.gameObject.SetActive(false);
             buyRollPopup.SetActive(false);
         }
-        
 
         private void CheckAndEnableRollButton()
         {
-            if (_currentRollCount<1)
+            if (_currentRollCount < 1)
             {
                 //disable Roll button
                 rollButton.interactable = false;
@@ -97,8 +116,22 @@ namespace BingoCity
             }
             else
             {
-                rollButton.interactable = true;
+                StartCoroutine(EnableRollButton());
             }
+        }
+
+        private IEnumerator EnableRollButton()
+        {
+            print($"--time--EnableRollButton --IEnumerator--{GameConfigs.BingoAnimPlayTime}");
+            yield return new WaitForSeconds(0.5f); //daubAnimation delay
+
+            print($"--time--EnableRollButton {GameConfigs.BingoAnimPlayTime}");
+            Observable.ReturnUnit()
+                .Delay(TimeSpan.FromSeconds(GameConfigs.BingoAnimPlayTime <= 0
+                    ? 0.75f
+                    : GameConfigs.BingoAnimPlayTime))
+                .Do(_ => rollButton.interactable = true)
+                .Subscribe().AddTo(this);
         }
 
         public void OnResetGameButton()
@@ -110,8 +143,9 @@ namespace BingoCity
         public void OnGetNextBallButton()
         {
             _currentRollCount--;
+            rollButton.interactable = false;
             UpdateRollText();
-            
+
             EventManager.OnGetNextBallButtonEvent();
         }
 
@@ -132,7 +166,7 @@ namespace BingoCity
             }
             else
             {
-                ShowGameOverPopup();
+                StartCoroutine(ShowGameOverPopup());
             }
         }
     }

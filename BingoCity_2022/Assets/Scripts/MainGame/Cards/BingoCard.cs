@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UniRx;
 using UnityEngine;
 
 namespace BingoCity
@@ -9,24 +10,22 @@ namespace BingoCity
     {
         [SerializeField] private List<BingoCell> bingoCells;
         [SerializeField] private GameObject bingoAnimation;
-        
 
         private int _cardId;
         private int _isBingoCalled;
-        private readonly Dictionary<int, BingoCell> _bingoCells = new ();
+        private readonly Dictionary<int, BingoCell> _bingoCells = new();
         private List<int> _itemPattern;
         private CardItemManager _itemManager;
-        private readonly Dictionary<int, int> _itemPatternData = new ();
+        private readonly Dictionary<int, int> _itemPatternData = new();
 
-        private  List<int> _bRowCards;
-        private  List<int> _iRowCards;
-        private  List<int> _nRowCards;
-        private  List<int> _gRowCards;
-        private  List<int> _oRowCards;
-        private  readonly Dictionary<string, List<int>> _winBingoData = new();
-       
+        private List<int> _bRowCards;
+        private List<int> _iRowCards;
+        private List<int> _nRowCards;
+        private List<int> _gRowCards;
+        private List<int> _oRowCards;
+        private readonly Dictionary<string, List<int>> _winBingoData = new();
 
-        public void SetData(int cardId,List<int> itemPattern)
+        public void SetData(int cardId, List<int> itemPattern)
         {
             _cardId = cardId;
             _itemPattern = itemPattern;
@@ -39,19 +38,19 @@ namespace BingoCity
         {
             foreach (var patternId in _itemPattern)
             {
-                if(patternId<1) continue;
-                
+                if (patternId < 1) continue;
+
                 if (_itemPatternData.ContainsKey(patternId))
                 {
                     _itemPatternData[patternId]++;
                 }
                 else
                 {
-                    _itemPatternData.Add(patternId,1);
+                    _itemPatternData.Add(patternId, 1);
                 }
             }
-            
         }
+
         private int GetUniqueCardRandomNumber(int cellId)
         {
             var randNumber = 0;
@@ -77,7 +76,7 @@ namespace BingoCity
             }
 
             randNumber = selectedRowList.GetAndRemoveRandomValue();
-            
+
             return randNumber;
         }
 
@@ -89,6 +88,7 @@ namespace BingoCity
             _gRowCards = Utils.GCardNumbers.GetClone();
             _oRowCards = Utils.OCardNumbers.GetClone();
         }
+
         private void GenerateCardNumbers()
         {
             GetCardRowsClone();
@@ -101,19 +101,21 @@ namespace BingoCity
                 {
                     if (_itemPattern[i] > 0)
                     {
-                        _itemManager.SetItemPosition(_itemPattern[i],bingoCell.GetComponent<RectTransform>().anchoredPosition);
+                        _itemManager.SetItemPosition(_itemPattern[i],
+                            bingoCell.GetComponent<RectTransform>().anchoredPosition);
                     }
-                    bingoCell.SetData(randNumber,i,OnUserDaub);
-                    _bingoCells.Add(randNumber,bingoCell);
+
+                    bingoCell.SetData(randNumber, i, OnUserDaub);
+                    _bingoCells.Add(randNumber, bingoCell);
                 }
-                
             }
         }
 
         private void OnUserDaub(int cellNumber)
         {
-            DoAutoDaub(new List<int>{cellNumber});
+            DoAutoDaub(new List<int> { cellNumber });
         }
+
         public void DoAutoDaub(List<int> calledBalls)
         {
             foreach (var ballNumber in calledBalls)
@@ -136,8 +138,8 @@ namespace BingoCity
                             _itemManager.RevealItem(daubedPatternId);
                         }
                     }
-                    
                 }
+
                 bingoCell.DoMarkCellAsDaub();
                 _bingoCells.Remove(ballNumber);
             }
@@ -147,16 +149,15 @@ namespace BingoCity
             {
                 if (!_winBingoData.ContainsKey(winRowColDetails.Key))
                 {
-                    _winBingoData.Add(winRowColDetails.Key,winRowColDetails.Value);
+                    _winBingoData.Add(winRowColDetails.Key, winRowColDetails.Value);
                     ShowBingoIconOnCell(winRowColDetails.Value);
                 }
             }
-            
+
             CheckAndShowBingoPatterns(BingoValidationLogics.CheckHorizontalPattern(bingoCells));
             CheckAndShowBingoPatterns(BingoValidationLogics.CheckVerticalPattern(bingoCells));
             CheckAndShowBingoPatterns(BingoValidationLogics.CheckDiagonalPattern(bingoCells));
-            
-            
+
             /*if (BingoValidationLogics.CheckHorizontalPattern(bingoCells) ||
                 BingoValidationLogics.CheckVerticalPattern(bingoCells) ||
                 BingoValidationLogics.CheckDiagonalPattern(bingoCells))
@@ -171,7 +172,7 @@ namespace BingoCity
             {
                 if (!_winBingoData.ContainsKey(winRowColDetails.Key))
                 {
-                    _winBingoData.Add(winRowColDetails.Key,winRowColDetails.Value);
+                    _winBingoData.Add(winRowColDetails.Key, winRowColDetails.Value);
                     ShowBingoIconOnCell(winRowColDetails.Value);
                 }
             }
@@ -184,17 +185,39 @@ namespace BingoCity
             {
                 bingoCells[cellsId].ShowWinBingoIcon();
             }
-            
         }
 
         private void PlayBingoAnimation()
         {
-            bingoAnimation.SetActive(true);
-            bingoAnimation.GetComponent<Animator>().Play("Bingo", -1,0f);
+            var animator = bingoAnimation.GetComponent<Animator>();
+            
+
+            var offsetDelay = 0.75f;
+            var bingoAnimationDuration = Utils.GetAnimationDuration(animator, "Tourney_anim_BingoAnim_1");
+            GameConfigs.BingoAnimPlayTime += bingoAnimationDuration+offsetDelay;
+            
+            print($"--time--PlayBingoAnimation start--- {GameConfigs.BingoAnimPlayTime}");
+            
+            Observable.ReturnUnit()
+                .Delay(TimeSpan.FromSeconds(offsetDelay))
+                .Do(_ =>
+                {
+                    bingoAnimation.SetActive(true);
+                    animator.Play("Bingo", -1, 0f);
+                })
+                .Delay(TimeSpan.FromSeconds(bingoAnimationDuration))
+                .Do(_ =>
+                {
+                    print($"--time--PlayBingoAnimation End--- {GameConfigs.BingoAnimPlayTime}");
+
+                    GameConfigs.BingoAnimPlayTime = 0;
+                })
+                .Subscribe().AddTo(this);
         }
-        
+
         private void ResetCard()
         {
+            GameConfigs.BingoAnimPlayTime = 0;
             bingoAnimation.SetActive(false);
             _winBingoData.Clear();
             _bingoCells.Clear();

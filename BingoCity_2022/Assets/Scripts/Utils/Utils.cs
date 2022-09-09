@@ -78,6 +78,19 @@ namespace BingoCity
             return rowString;
         }
 
+        public static float GetAnimationDuration(Animator animator,string animationStateName)
+        {
+            AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+            foreach (AnimationClip clip in clips)
+            {
+                if(clip.name == animationStateName)
+                    return clip.length;
+            }
+            
+            return 0f;
+
+        }
+
         public static void ResetGameData()
         {
             BCardNumbers.Clear();
@@ -91,5 +104,6 @@ namespace BingoCity
             
             GenerateCardsBasedOnSpan();
         }
+        
     }
 }
