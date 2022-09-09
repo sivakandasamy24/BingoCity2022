@@ -156,7 +156,7 @@ namespace BingoCity
             print($"--time--EnableRollButton {GameConfigs.BingoAnimPlayTime}");
             Observable.ReturnUnit()
                 .Delay(TimeSpan.FromSeconds(GameConfigs.BingoAnimPlayTime <= 0
-                    ? 0.75f
+                    ? 0.2f
                     : GameConfigs.BingoAnimPlayTime))
                 .Do(_ => rollButton.interactable = true)
                 .Subscribe().AddTo(this);

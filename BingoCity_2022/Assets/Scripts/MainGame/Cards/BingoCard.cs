@@ -214,7 +214,7 @@ namespace BingoCity
 
             var offsetDelay = 0.75f;
             var bingoAnimationDuration = Utils.GetAnimationDuration(animator, "Tourney_anim_BingoAnim_1");
-            GameConfigs.BingoAnimPlayTime += bingoAnimationDuration+offsetDelay;
+            GameConfigs.BingoAnimPlayTime = bingoAnimationDuration+offsetDelay;
             
             print($"--time--PlayBingoAnimation start--- {GameConfigs.BingoAnimPlayTime}");
             
