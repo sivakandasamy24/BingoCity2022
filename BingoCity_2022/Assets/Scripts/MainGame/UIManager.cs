@@ -12,6 +12,7 @@ namespace BingoCity
     {
         [SerializeField] private GameConfigData gameConfigData;
         [SerializeField] private TextMeshProUGUI rollCountText;
+        [SerializeField] private TextMeshProUGUI raidTokentText;
         [SerializeField] private Button rollButton;
         [SerializeField] private GameObject popupParent;
         [SerializeField] private GameObject buyRollPopup;
@@ -20,18 +21,39 @@ namespace BingoCity
 
         private int _currentRollCount;
         private int _autoPopupShowCount;
-        public GameConfigData GameConfigData => gameConfigData;
 
         private void Awake()
         {
+            GameConfigs.GameConfigData = gameConfigData;
             Utils.ballCallingSpan = gameConfigData.CardSpanCount;
+        }
+        private void OnEnable()
+        {
+            AddListeners(true);
+        }
+
+        private void OnDisable()
+        {
+            AddListeners(false);
+        }
+        
+        private void AddListeners(bool canEnable)
+        {
+            if (canEnable)
+            {
+                EventManager.onBingoEvent += UpdateRaidTokenCount;
+            }
+            else
+            {
+                EventManager.onBingoEvent -= UpdateRaidTokenCount;
+            }
         }
 
         private void Start()
         {
             InitData();
         }
-
+        
         private void InitData()
         {
             _currentRollCount = gameConfigData.MaxNumberRoll;
@@ -41,8 +63,14 @@ namespace BingoCity
             summaryPopup.gameObject.SetActive(false);
             roundOver.gameObject.SetActive(false);
             UpdateRollText();
+            UpdateRaidTokenCount();
         }
 
+        private void UpdateRaidTokenCount()
+        {
+            GameSummary.raidTokenGained = GameSummary.bingoGained / gameConfigData.RaidTokenCapCount;
+            raidTokentText.text = $"{GameSummary.bingoGained % gameConfigData.RaidTokenCapCount} / {gameConfigData.RaidTokenCapCount}";
+        }
         private void UpdateRollText()
         {
             rollCountText.text = $" {_currentRollCount}";
@@ -136,8 +164,8 @@ namespace BingoCity
 
         public void OnResetGameButton()
         {
+            EventManager.onRestartGameButtonEvent?.Invoke();
             InitData();
-            EventManager.OnRestartGameButtonEvent();
         }
 
         public void OnGetNextBallButton()
@@ -146,7 +174,7 @@ namespace BingoCity
             rollButton.interactable = false;
             UpdateRollText();
 
-            EventManager.OnGetNextBallButtonEvent();
+            EventManager.onGetNextBallButtonEvent?.Invoke();
         }
 
         public void OnBackButton(int loadSceneIndex)

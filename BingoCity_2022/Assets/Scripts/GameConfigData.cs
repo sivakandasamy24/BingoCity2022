@@ -13,8 +13,14 @@ namespace BingoCity
         [SerializeField] private int buyPopupAutoTimer = 1; // GS autoTimerWaiting timerIn sec
         [SerializeField] private int buyAdditionalRollCount = 2; //GS additional click buy count
         [SerializeField] private int cardSpanCount = 60; //GS additional click buy count
+        
+        [SerializeField] private int raidTokenCapCount =2; //GS conversion from tot bingo to raidToken
+        [SerializeField] private List<int> coinReward ; //GS reward count
+        
 
        
+        public List<int> CoinReward => coinReward;
+        public int RaidTokenCapCount => raidTokenCapCount;
         public int BuyPopupMaxWindowCount => buyPopupMaxWindowCount;
         public List<string> ItemPattern => itemPattern;
         public int BuyPopupAutoTimer => buyPopupAutoTimer;

@@ -1,4 +1,5 @@
 using System;
+using BingoCity;
 
 public static class GameConfigs
 {
@@ -13,6 +14,8 @@ public static class GameConfigs
     //public static int LoadDebugConfig;
 
     public static float BingoAnimPlayTime;
+    
+    public static GameConfigData GameConfigData;
 
     public enum BingoLetters
     {
@@ -21,5 +24,23 @@ public static class GameConfigs
         NRow = 'N',
         GRow = 'G',
         ORow = 'O'
+    }
+}
+
+public static class GameSummary
+{
+    public static int XpOnRound;
+    public static int coinsGained;
+    public static int bingoGained;
+    public static int raidTokenGained;
+    public static int cityBuildTokenGained;
+
+    public static void ResetData()
+    {
+        XpOnRound = 0;
+        coinsGained = 0;
+        bingoGained = 0;
+        raidTokenGained = 0;
+        cityBuildTokenGained = 0;
     }
 }

@@ -13,29 +13,27 @@ namespace BingoCity
 
         private Dictionary<int, List<int>> _itemPatterns = new Dictionary<int, List<int>>();
         
-        private UIManager _uiManager;
 
         private void AddListeners(bool canEnable)
         {
             if (canEnable)
             {
-                EventManager.BallRollOutEvent += CheckForAutoDaubs;
-                EventManager.OnRestartGameButtonEvent += ResetGame;
+                EventManager.onBallRollOutEvent += CheckForAutoDaubs;
+                EventManager.onRestartGameButtonEvent += ResetGame;
             }
             else
             {
-                EventManager.BallRollOutEvent -= CheckForAutoDaubs;
-                EventManager.OnRestartGameButtonEvent -= ResetGame;
+                EventManager.onBallRollOutEvent -= CheckForAutoDaubs;
+                EventManager.onRestartGameButtonEvent -= ResetGame;
             }
         }
 
         private void Start()
         {
-            _uiManager = GetComponent<UIManager>();
-            
-            for (var i = 0; i < _uiManager.GameConfigData.ItemPattern.Count; i++)
+
+            for (var i = 0; i < GameConfigs.GameConfigData.ItemPattern.Count; i++)
             {
-                var patternString = _uiManager.GameConfigData.ItemPattern[i];
+                var patternString = GameConfigs.GameConfigData.ItemPattern[i];
                 _itemPatterns.Add(i, patternString.Split(",").Select(int.Parse).ToList());
 
             }
@@ -52,7 +50,7 @@ namespace BingoCity
                 bingoCards.Add(i, card);
             }
         }
-
+        
         private void CheckForAutoDaubs(List<int> calledBalls)
         {
             if (!GameConfigs.IsAutoDaubEnable) return;
@@ -70,6 +68,7 @@ namespace BingoCity
                 Destroy(child.gameObject);
             }
 
+            GameSummary.ResetData();
             Utils.ResetGameData();
             AttachCardOnScreen();
         }

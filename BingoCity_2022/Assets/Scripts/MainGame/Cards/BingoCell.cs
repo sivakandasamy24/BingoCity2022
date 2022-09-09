@@ -46,6 +46,7 @@ namespace BingoCity
 
         public void DoMarkCellAsDaub()
         {
+            GameSummary.XpOnRound++;
             UpdateCellDaubUI(true);
             // Destroy(gameObject);
         }

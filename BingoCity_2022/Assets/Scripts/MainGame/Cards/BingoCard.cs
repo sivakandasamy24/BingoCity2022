@@ -25,7 +25,9 @@ namespace BingoCity
         private List<int> _oRowCards;
         private readonly Dictionary<string, List<int>> _winBingoData = new();
 
-        public void SetData(int cardId, List<int> itemPattern)
+        
+
+        public void SetData(int cardId, List<int> itemPattern )
         {
             _cardId = cardId;
             _itemPattern = itemPattern;
@@ -180,11 +182,29 @@ namespace BingoCity
 
         private void ShowBingoIconOnCell(List<int> winBingoCells)
         {
+            UpdateSummaryRewards();
             PlayBingoAnimation();
             foreach (var cellsId in winBingoCells)
             {
                 bingoCells[cellsId].ShowWinBingoIcon();
             }
+        }
+
+        private void UpdateSummaryRewards()
+        {
+            var totCoinRwdCount = GameConfigs.GameConfigData.CoinReward.Count - 1;
+            if (_winBingoData.Count > totCoinRwdCount)
+            {
+                GameSummary.coinsGained +=
+                    GameConfigs.GameConfigData.CoinReward[totCoinRwdCount];
+            }
+            else
+            {
+                GameSummary.coinsGained += GameConfigs.GameConfigData.CoinReward[_winBingoData.Count-1];
+            }
+
+            GameSummary.bingoGained++;
+            EventManager.onBingoEvent?.Invoke();
         }
 
         private void PlayBingoAnimation()
