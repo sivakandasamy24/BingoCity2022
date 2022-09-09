@@ -80,21 +80,16 @@ namespace BingoCity
                     _winBingoDetails.Add($"V_{colCount}",winBingoCells);
                     // break;
                 }
-                if (bingoSeqCount > 4)
-                {
-                    isBingoFound = true;
-                    break;
-                }
             }
 
             Debug.Log("--CheckVerticalPattern--" + isBingoFound);
             return _winBingoDetails;
         }
 
-        public static bool CheckDiagonalPattern(List<BingoCell> cellObjArr)
+        public static Dictionary<string, List<int>> CheckDiagonalPattern(List<BingoCell> cellObjArr)
         {
             var isBingoFound = false;
-
+            Dictionary<string, List<int>> _winBingoDetails = new();
             if (
                 IsCellDaubed(cellObjArr[0]) &&
                 IsCellDaubed(cellObjArr[6]) &&
@@ -103,9 +98,10 @@ namespace BingoCity
                 IsCellDaubed(cellObjArr[24])
             )
             {
+                _winBingoDetails.Add("D1",new List<int>(){0,6,12,18,24});
                 isBingoFound = true;
             }
-            else if (
+            if (
                 IsCellDaubed(cellObjArr[4]) &&
                 IsCellDaubed(cellObjArr[8]) &&
                 IsCellDaubed(cellObjArr[12]) &&
@@ -113,12 +109,13 @@ namespace BingoCity
                 IsCellDaubed(cellObjArr[20])
             )
             {
+                _winBingoDetails.Add("D2",new List<int>(){4,8,12,16,20});
                 isBingoFound = true;
             }
 
             Debug.Log("--CheckDiagonalPattern--" + isBingoFound);
 
-            return isBingoFound;
+            return _winBingoDetails;
         }
 
         private static bool IsCellDaubed(BingoCell cell)

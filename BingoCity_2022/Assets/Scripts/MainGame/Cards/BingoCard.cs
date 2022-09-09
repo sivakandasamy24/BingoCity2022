@@ -150,7 +150,21 @@ namespace BingoCity
                 }
             }
             
-            winBingoDetails = BingoValidationLogics.CheckVerticalPattern(bingoCells);
+            CheckAndShowBingoPatterns(BingoValidationLogics.CheckHorizontalPattern(bingoCells));
+            CheckAndShowBingoPatterns(BingoValidationLogics.CheckVerticalPattern(bingoCells));
+            CheckAndShowBingoPatterns(BingoValidationLogics.CheckDiagonalPattern(bingoCells));
+            
+            
+            /*if (BingoValidationLogics.CheckHorizontalPattern(bingoCells) ||
+                BingoValidationLogics.CheckVerticalPattern(bingoCells) ||
+                BingoValidationLogics.CheckDiagonalPattern(bingoCells))
+            {
+                print("******************** BINGO ********************");
+            }*/
+        }
+
+        private void CheckAndShowBingoPatterns(Dictionary<string, List<int>> winBingoDetails)
+        {
             foreach (var winRowColDetails in winBingoDetails)
             {
                 if (!_winBingoData.ContainsKey(winRowColDetails.Key))
@@ -159,13 +173,6 @@ namespace BingoCity
                     ShowBingoIconOnCell(winRowColDetails.Value);
                 }
             }
-            
-            /*if (BingoValidationLogics.CheckHorizontalPattern(bingoCells) ||
-                BingoValidationLogics.CheckVerticalPattern(bingoCells) ||
-                BingoValidationLogics.CheckDiagonalPattern(bingoCells))
-            {
-                print("******************** BINGO ********************");
-            }*/
         }
 
         private void ShowBingoIconOnCell(List<int> winBingoCells)
