@@ -22,6 +22,7 @@ namespace BingoCity
         private  List<int> _nRowCards;
         private  List<int> _gRowCards;
         private  List<int> _oRowCards;
+        private  readonly Dictionary<string, List<int>> _winBingoData = new();
 
         public void SetData(int cardId,List<int> itemPattern)
         {
@@ -139,16 +140,46 @@ namespace BingoCity
                 _bingoCells.Remove(ballNumber);
             }
 
-            if (BingoValidationLogics.CheckHorizontalPattern(bingoCells) ||
+            var winBingoDetails = BingoValidationLogics.CheckHorizontalPattern(bingoCells);
+            foreach (var winRowColDetails in winBingoDetails)
+            {
+                if (!_winBingoData.ContainsKey(winRowColDetails.Key))
+                {
+                    _winBingoData.Add(winRowColDetails.Key,winRowColDetails.Value);
+                    ShowBingoIconOnCell(winRowColDetails.Value);
+                }
+            }
+            
+            winBingoDetails = BingoValidationLogics.CheckVerticalPattern(bingoCells);
+            foreach (var winRowColDetails in winBingoDetails)
+            {
+                if (!_winBingoData.ContainsKey(winRowColDetails.Key))
+                {
+                    _winBingoData.Add(winRowColDetails.Key,winRowColDetails.Value);
+                    ShowBingoIconOnCell(winRowColDetails.Value);
+                }
+            }
+            
+            /*if (BingoValidationLogics.CheckHorizontalPattern(bingoCells) ||
                 BingoValidationLogics.CheckVerticalPattern(bingoCells) ||
                 BingoValidationLogics.CheckDiagonalPattern(bingoCells))
             {
                 print("******************** BINGO ********************");
-            }
+            }*/
         }
 
+        private void ShowBingoIconOnCell(List<int> winBingoCells)
+        {
+            foreach (var cellsId in winBingoCells)
+            {
+                bingoCells[cellsId].ShowWinBingoIcon();
+            }
+            
+        }
+        
         private void ResetCard()
         {
+            _winBingoData.Clear();
             _bingoCells.Clear();
             _itemManager.ResetItems();
         }

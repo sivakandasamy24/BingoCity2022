@@ -5,22 +5,24 @@ namespace BingoCity
 {
     public class BingoValidationLogics
     {
-        private static readonly Dictionary<string, List<int>> _winBingoDetails = new();
-        public static bool CheckHorizontalPattern(List<BingoCell> cellObjArr)
+       
+        public static Dictionary<string, List<int>> CheckHorizontalPattern(List<BingoCell> cellObjArr)
         {
             var isBingoFound = false;
             var nextCellId = 0;
             var bingoSeqCount = 0;
-            _winBingoDetails.Clear();
-            var _winBingoCells = new List<int>();
+            Dictionary<string, List<int>> _winBingoDetails = new();
             for (var rowCount = 0; rowCount < 5; rowCount++)
             {
+                var winBingoCells = new List<int>();
+                nextCellId = rowCount;
                 for (var colCount = 0; colCount < 5; colCount++)
                 {
                     var cell = cellObjArr[nextCellId];
 
                     if (cell == null || cell.IsDaubed)
                     {
+                        winBingoCells.Add(cell.CellId);
                         nextCellId += 5;
                         bingoSeqCount++;
                     }
@@ -35,28 +37,32 @@ namespace BingoCity
                 if (bingoSeqCount > 4)
                 {
                     isBingoFound = true;
-                    break;
+                    _winBingoDetails.Add($"H_{rowCount}",winBingoCells);
+                   // break;
                 }
             }
 
             Debug.Log("--CheckHorizontalPattern--" + isBingoFound);
-            return isBingoFound;
+            return _winBingoDetails;
         }
 
-        public static bool CheckVerticalPattern(List<BingoCell> cellObjArr)
+        public static Dictionary<string, List<int>> CheckVerticalPattern(List<BingoCell> cellObjArr)
         {
             var isBingoFound = false;
             var nextCellId = 0;
             var bingoSeqCount = 0;
-
+            Dictionary<string, List<int>> _winBingoDetails = new();
             for (var colCount = 0; colCount < 5; colCount++)
             {
+                var winBingoCells = new List<int>();
+                nextCellId = colCount*5;
                 for (var rowCount = 0; rowCount < 5; rowCount++)
                 {
                     var cell = cellObjArr[nextCellId];
 
                     if (cell == null || cell.IsDaubed)
                     {
+                        winBingoCells.Add(cell.CellId);
                         nextCellId++;
                         bingoSeqCount++;
                     }
@@ -67,7 +73,13 @@ namespace BingoCity
                         break;
                     }
                 }
-
+                
+                if (bingoSeqCount > 4)
+                {
+                    isBingoFound = true;
+                    _winBingoDetails.Add($"V_{colCount}",winBingoCells);
+                    // break;
+                }
                 if (bingoSeqCount > 4)
                 {
                     isBingoFound = true;
@@ -76,7 +88,7 @@ namespace BingoCity
             }
 
             Debug.Log("--CheckVerticalPattern--" + isBingoFound);
-            return isBingoFound;
+            return _winBingoDetails;
         }
 
         public static bool CheckDiagonalPattern(List<BingoCell> cellObjArr)

@@ -11,6 +11,7 @@ namespace BingoCity
     {
         [SerializeField] private GameObject cellBg;
         [SerializeField] private GameObject daubedIcon;
+        [SerializeField] private GameObject winBingoIcon;
         [SerializeField] private Text cellNumberText;
         [SerializeField] private Text debugCellIdTxt;
         [SerializeField] private GameObject daubAnimationPrefab ;
@@ -57,6 +58,12 @@ namespace BingoCity
             //debugCellIdTxt.gameObject.SetActive(!isDaubed);
             daubedIcon.gameObject.SetActive(isDaubed);
             daubAnimationPrefab.SetActive(isDaubed);
+        }
+
+        public void ShowWinBingoIcon()
+        {
+            daubedIcon.gameObject.SetActive(false);
+            winBingoIcon.SetActive(true);
         }
     }
 }
