@@ -42,10 +42,12 @@ namespace BingoCity
             if (canEnable)
             {
                 EventManager.onBingoEvent += UpdateRaidTokenCount;
+                EventManager.onGameEndEvent += OnGameEndEvent;
             }
             else
             {
                 EventManager.onBingoEvent -= UpdateRaidTokenCount;
+                EventManager.onGameEndEvent -= OnGameEndEvent;
             }
         }
 
@@ -196,6 +198,11 @@ namespace BingoCity
             {
                 StartCoroutine(ShowGameOverPopup());
             }
+        }
+
+        private void OnGameEndEvent()
+        {
+            StartCoroutine(ShowGameOverPopup());
         }
     }
 }

@@ -55,7 +55,7 @@ namespace BingoCity
 
         public static int GetRandUnCalledBallNumber()
         {
-            if (BallCallingList.Count < 1) GetBallCallingSpanList();
+            if (BallCallingList.Count < 1) EventManager.onGameEndEvent?.Invoke();
 
             var randNumber = BallCallingList.GetAndRemoveRandomValue();
             return randNumber;

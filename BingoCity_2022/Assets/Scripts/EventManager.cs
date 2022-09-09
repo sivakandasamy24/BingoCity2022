@@ -10,6 +10,7 @@ namespace BingoCity
     {
         public static Action<List<int>> onBallRollOutEvent;
         public static Action onBingoEvent;
+        public static Action onGameEndEvent;
         
         public static Action onRestartGameButtonEvent;
         public static Action onGetNextBallButtonEvent;

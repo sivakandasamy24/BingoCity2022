@@ -59,6 +59,23 @@ namespace BingoCity
             {
                 bingoCard.Value.DoAutoDaub(calledBalls);
             }
+
+            CheckForAllCardGameEnd();
+        }
+
+        private void CheckForAllCardGameEnd()
+        {
+            var cardDaubCompleteCount = 0;
+            foreach (var bingoCard in bingoCards)
+            {
+                if (bingoCard.Value.IsAllCellDaubed())
+                    cardDaubCompleteCount++;
+            }
+
+            if (cardDaubCompleteCount >= bingoCards.Count)
+            {
+                EventManager.onGameEndEvent?.Invoke();
+            }
         }
 
         private void ResetGame()

@@ -17,6 +17,7 @@ namespace BingoCity
         private List<int> _itemPattern;
         private CardItemManager _itemManager;
         private readonly Dictionary<int, int> _itemPatternData = new();
+        private int _daubsRemainingCount;
 
         private List<int> _bRowCards;
         private List<int> _iRowCards;
@@ -142,6 +143,7 @@ namespace BingoCity
                     }
                 }
 
+                _daubsRemainingCount--;
                 bingoCell.DoMarkCellAsDaub();
                 _bingoCells.Remove(ballNumber);
             }
@@ -237,11 +239,17 @@ namespace BingoCity
 
         private void ResetCard()
         {
+            _daubsRemainingCount = bingoCells.Count;
             GameConfigs.BingoAnimPlayTime = 0;
             bingoAnimation.SetActive(false);
             _winBingoData.Clear();
             _bingoCells.Clear();
             _itemManager.ResetItems();
+        }
+
+        public bool IsAllCellDaubed()
+        {
+            return _daubsRemainingCount <= 0;
         }
     }
 }
