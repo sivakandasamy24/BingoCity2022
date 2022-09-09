@@ -14,14 +14,14 @@ public class CharcterCardUI : MonoBehaviour
     private static int _thirdLevel = 15;
 
 
-    public bool AssigningCharacterCardValues(int ratings,int tokensCollected, int coinCount, Image character = null)
+    public bool AssigningCharacterCardValues(int ratings,int tokensCollected, int coinCount, Sprite character = null)
     {
         for (int i = 0; i < ratings; i++)
         {
             RatingGameObjects[i].SetActive(true);
         }
         Tokens.text = tokensCollected + "/" + _firstLevel;
-        Character = character;
+        Character.sprite = character;
         CoinCount.text = coinCount.ToString();
         return tokensCollected >= _firstLevel;
     }

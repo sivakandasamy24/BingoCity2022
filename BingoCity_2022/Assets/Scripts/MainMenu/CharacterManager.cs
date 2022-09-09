@@ -7,30 +7,28 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] private GameObject CharacterCard;
     [SerializeField] private Transform Content;
     [SerializeField] private Image[] IconImages;
-    [SerializeField]private Image image;
-    private static int CharacterCount = 5;
-    private string _imageLocation;
+    [SerializeField] private List<CharacterCardScriptableObjects> Character;
 
     private void OnEnable()
     {
-        List<Image> upgradedImages = new List<Image>();
-        for (int i = 0; i < CharacterCount; i++)
+        List<Sprite> upgradedImages = new List<Sprite>();
+        for (int i = 0; i < Character.Count; i++)
         {
             var prefab = Instantiate(CharacterCard, Content);
-            bool upgraded = prefab.GetComponent<CharcterCardUI>().AssigningCharacterCardValues(3,4,50);
+            bool upgraded = prefab.GetComponent<CharcterCardUI>().AssigningCharacterCardValues(Character[i].Ratings, 4,Character[i].CoinCount,Character[i].Character);
             if (upgraded)
             {
-                upgradedImages.Add(image);
+                upgradedImages.Add(Character[i].Character);
             }
         }
         UpdateUpgradedCard(upgradedImages);
     }
 
-    private void UpdateUpgradedCard(List<Image> upgradedCharcter)
+    private void UpdateUpgradedCard(List<Sprite> upgradedCharcter)
     {
         for (int i = 0; i < upgradedCharcter.Count; i++)
         {
-            IconImages[i] = upgradedCharcter[i];
+            IconImages[i].sprite = upgradedCharcter[i];
         }
     }
 
