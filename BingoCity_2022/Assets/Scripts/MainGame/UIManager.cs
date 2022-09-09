@@ -11,10 +11,10 @@ namespace BingoCity
         [SerializeField] private GameConfigData gameConfigData;
         [SerializeField] private TextMeshProUGUI rollCountText;
         [SerializeField] private Button rollButton;
-
         [SerializeField] private GameObject popupParent;
         [SerializeField] private GameObject buyRollPopup;
         [SerializeField] private GameObject summaryPopup;
+        [SerializeField] private GameObject roundOver;
 
 
         private int _currentRollCount;
@@ -39,6 +39,7 @@ namespace BingoCity
             popupParent.gameObject.SetActive(false);
             buyRollPopup.gameObject.SetActive(false);
             summaryPopup.gameObject.SetActive(false);
+            roundOver.gameObject.SetActive(false);
             UpdateRollText();
         }
 
@@ -57,14 +58,21 @@ namespace BingoCity
             }
             else
             {
-                ShowGameSummaryPopup();
+                ShowGameOverPopup();
             }
         }
 
         private void ShowGameSummaryPopup()
         {
+            
             popupParent.gameObject.SetActive(true);
             summaryPopup.SetActive(true);
+        }
+
+        private void ShowGameOverPopup()
+        {
+            roundOver.SetActive(true);
+            Invoke(nameof(ShowGameSummaryPopup),3f);
         }
         private void ShowBuyRollCountPopup()
         {
@@ -124,7 +132,7 @@ namespace BingoCity
             }
             else
             {
-                ShowGameSummaryPopup();
+                ShowGameOverPopup();
             }
         }
     }
