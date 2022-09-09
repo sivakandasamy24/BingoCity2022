@@ -21,11 +21,13 @@ namespace BingoCity
 
         private int _currentRollCount;
         private int _autoPopupShowCount;
+        private CircleTimerScript _timerScript;
 
         private void Awake()
         {
             GameConfigs.GameConfigData = gameConfigData;
             Utils.ballCallingSpan = gameConfigData.CardSpanCount;
+            
         }
         private void OnEnable()
         {
@@ -53,6 +55,7 @@ namespace BingoCity
 
         private void Start()
         {
+            _timerScript = GetComponent<CircleTimerScript>();
             InitData();
         }
         
@@ -64,6 +67,7 @@ namespace BingoCity
             buyRollPopup.gameObject.SetActive(false);
             summaryPopup.gameObject.SetActive(false);
             roundOver.gameObject.SetActive(false);
+            _timerScript.RestartGame();
             UpdateRollText();
             UpdateRaidTokenCount();
         }
@@ -100,8 +104,9 @@ namespace BingoCity
 
         private IEnumerator ShowGameOverPopup()
         {
+            rollButton.interactable = false;
             yield return new WaitForSeconds(0.5f); //daubAnimation delay
-
+            
             print($"--time--ShowGameOverPopup {GameConfigs.BingoAnimPlayTime}");
             Observable.ReturnUnit()
                 .Delay(TimeSpan.FromSeconds(GameConfigs.BingoAnimPlayTime <= 0 ? 0.75f : GameConfigs.BingoAnimPlayTime))

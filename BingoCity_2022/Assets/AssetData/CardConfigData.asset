@@ -22,5 +22,6 @@ MonoBehaviour:
   buyPopupAutoTimer: 1
   buyAdditionalRollCount: 2
   cardSpanCount: 50
+  timerDuration: 25
   raidTokenCapCount: 3
   coinReward: 640000007d00000096000000
