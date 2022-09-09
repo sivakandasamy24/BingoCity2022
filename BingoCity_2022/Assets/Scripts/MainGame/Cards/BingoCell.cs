@@ -13,6 +13,7 @@ namespace BingoCity
         [SerializeField] private GameObject daubedIcon;
         [SerializeField] private Text cellNumberText;
         [SerializeField] private Text debugCellIdTxt;
+        [SerializeField] private GameObject daubAnimationPrefab ;
         
         private readonly ReactiveProperty<int> _cellNumber = new ReactiveProperty<int>();
         private readonly ReactiveProperty<int> _cellId = new ReactiveProperty<int>();
@@ -55,6 +56,7 @@ namespace BingoCity
             cellNumberText.gameObject.SetActive(!isDaubed);
             //debugCellIdTxt.gameObject.SetActive(!isDaubed);
             daubedIcon.gameObject.SetActive(isDaubed);
+            daubAnimationPrefab.SetActive(isDaubed);
         }
     }
 }

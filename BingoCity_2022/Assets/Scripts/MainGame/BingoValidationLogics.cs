@@ -5,12 +5,14 @@ namespace BingoCity
 {
     public class BingoValidationLogics
     {
+        private static readonly Dictionary<string, List<int>> _winBingoDetails = new();
         public static bool CheckHorizontalPattern(List<BingoCell> cellObjArr)
         {
             var isBingoFound = false;
             var nextCellId = 0;
             var bingoSeqCount = 0;
-
+            _winBingoDetails.Clear();
+            var _winBingoCells = new List<int>();
             for (var rowCount = 0; rowCount < 5; rowCount++)
             {
                 for (var colCount = 0; colCount < 5; colCount++)
