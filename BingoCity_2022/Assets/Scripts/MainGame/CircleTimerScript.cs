@@ -54,7 +54,7 @@ namespace BingoCity
             
         }
         
-        private void StopTimerNow()
+        public void StopTimerNow()
         {
            // AudioManager.instance.StartTimerSound(false);
             

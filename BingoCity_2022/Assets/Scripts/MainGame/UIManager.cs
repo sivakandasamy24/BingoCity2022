@@ -99,11 +99,13 @@ namespace BingoCity
         private void ShowGameSummaryPopup()
         {
             popupParent.gameObject.SetActive(true);
+            buyRollPopup.SetActive(false);
             summaryPopup.SetActive(true);
         }
 
         private IEnumerator ShowGameOverPopup()
         {
+            _timerScript.StopTimerNow();
             rollButton.interactable = false;
             yield return new WaitForSeconds(0.5f); //daubAnimation delay
             
