@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UniRx;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace BingoCity
     {
         [SerializeField] private List<BingoCell> bingoCells;
         [SerializeField] private GameObject bingoAnimation;
+        [SerializeField] private TextMeshProUGUI cardIdText;
 
         private int _cardId;
         private int _isBingoCalled;
@@ -33,6 +35,7 @@ namespace BingoCity
             _cardId = cardId;
             _itemPattern = itemPattern;
             _itemManager = GetComponent<CardItemManager>();
+            cardIdText.text = $"Card {cardId+1}";
             GetItemPatternData();
             GenerateCardNumbers();
         }
