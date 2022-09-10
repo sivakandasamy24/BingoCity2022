@@ -3,7 +3,7 @@ using BingoCity;
 
 public static class GameConfigs
 {
-    public static int NumberOfCardToPlay = 4;
+    public static int NumberOfCardToPlay = 2 ;
     public static bool IsAutoDaubEnable = true;
 
     public static bool LoadDebugConfigPage;

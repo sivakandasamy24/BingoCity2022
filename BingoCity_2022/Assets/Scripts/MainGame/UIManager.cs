@@ -189,6 +189,7 @@ namespace BingoCity
         public void OnBackButton(int loadSceneIndex)
         {
             GameConfigs.LoadDebugConfigPage = false;
+            GameConfigs.NumberOfCardToPlay = 2;
             SceneManager.LoadScene(loadSceneIndex);
         }
 
