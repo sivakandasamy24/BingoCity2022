@@ -67,7 +67,11 @@ namespace BingoCity
                 cardContainers[i].SetActive(false);
             }
 
-            cardSelectionButton[showCardIndex].interactable = true;
+            for (int j = 0; j < GameConfigs.NumberOfCardToPlay/2; j++)
+            {
+                cardSelectionButton[j].interactable = true;
+            }
+            
             cardContainers[showCardIndex].SetActive(true);
         }
         private GameObject GetParent(int cardId)

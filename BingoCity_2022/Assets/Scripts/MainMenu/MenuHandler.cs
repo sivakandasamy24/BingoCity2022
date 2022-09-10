@@ -16,6 +16,11 @@ namespace BingoCity
             SceneManager.LoadScene(loadSceneIndex);
         }
 
+        public void BuyCardNumbers(int cardNumbers)
+        {
+            GameConfigs.NumberOfCardToPlay = cardNumbers;
+        }
+
 
     }
 }

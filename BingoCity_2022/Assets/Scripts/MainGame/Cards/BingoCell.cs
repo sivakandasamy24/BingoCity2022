@@ -48,6 +48,7 @@ namespace BingoCity
         {
             GameSummary.XpOnRound++;
             UpdateCellDaubUI(true);
+            daubAnimationPrefab.GetComponent<Animator>().Play($"Daub");
             // Destroy(gameObject);
         }
 
