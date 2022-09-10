@@ -1,13 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BingoCity
 {
     public class BingoCardManager : MonoBehaviour
     {
-        [SerializeField] private GameObject cardContainer;
+        //[SerializeField] private GameObject cardContainer;
+        [SerializeField] private List<GameObject> cardContainers;
         [SerializeField] private BingoCard bingoCard;
+        [SerializeField] private List<Toggle> cardSelectionButton;
 
         private readonly Dictionary<int, BingoCard> bingoCards = new Dictionary<int, BingoCard>();
 
@@ -43,14 +46,53 @@ namespace BingoCity
         private void AttachCardOnScreen()
         {
             bingoCards.Clear();
+            SetCardVisibility(0);
+            cardSelectionButton[0].isOn = true;
             for (var i = 0; i < GameConfigs.NumberOfCardToPlay; i++)
             {
-                var card = Instantiate(bingoCard, cardContainer.gameObject.transform);
+                var card = Instantiate(bingoCard, GetParent(i).gameObject.transform);
                 card.SetData(i, _itemPatterns[Random.Range(0,_itemPatterns.Count)]);
                 bingoCards.Add(i, card);
             }
+
+           
         }
-        
+
+        public void SetCardVisibility(int showCardIndex)
+        {
+            //if(showCardIndex+1>GameConfigs.NumberOfCardToPlay) return;
+            for (var i = 0; i < cardContainers.Count; i++)
+            {
+                cardSelectionButton[i].interactable = false;
+                cardContainers[i].SetActive(false);
+            }
+
+            cardSelectionButton[showCardIndex].interactable = true;
+            cardContainers[showCardIndex].SetActive(true);
+        }
+        private GameObject GetParent(int cardId)
+        {
+            var gameObj =  cardContainers[3];
+            switch (cardId)
+            {
+                case 0:
+                case 1:
+                    gameObj =  cardContainers[0];
+                    break;
+                case 2:
+                case 3:
+                    gameObj = cardContainers[1];
+                    break;
+                case 4:
+                case 5:
+                    gameObj = cardContainers[2];
+                    break;
+                    
+            }
+
+            return gameObj;
+        }
+
         private void CheckForAutoDaubs(List<int> calledBalls)
         {
             if (!GameConfigs.IsAutoDaubEnable) return;
@@ -80,9 +122,13 @@ namespace BingoCity
 
         private void ResetGame()
         {
-            foreach (Transform child in cardContainer.transform)
+            foreach (var cardContainerParent in cardContainers)
             {
-                Destroy(child.gameObject);
+                foreach (Transform child in cardContainerParent.transform)
+                {
+                    Destroy(child.gameObject);
+                }
+                
             }
 
             GameSummary.ResetData();
