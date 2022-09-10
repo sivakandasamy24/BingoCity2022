@@ -1294,7 +1294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7467638023776237928, guid: aede4421280464399a7bd2b5f853e59c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7467638023776237928, guid: aede4421280464399a7bd2b5f853e59c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1302,7 +1302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7467638023776237928, guid: aede4421280464399a7bd2b5f853e59c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7467638023776237928, guid: aede4421280464399a7bd2b5f853e59c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1342,11 +1342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7467638023776237928, guid: aede4421280464399a7bd2b5f853e59c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 203.29475
       objectReference: {fileID: 0}
     - target: {fileID: 7467638023776237928, guid: aede4421280464399a7bd2b5f853e59c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -110.65802
       objectReference: {fileID: 0}
     - target: {fileID: 7467638023776237928, guid: aede4421280464399a7bd2b5f853e59c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2970,7 +2970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7467638023776237928, guid: aede4421280464399a7bd2b5f853e59c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7467638023776237928, guid: aede4421280464399a7bd2b5f853e59c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -2978,7 +2978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7467638023776237928, guid: aede4421280464399a7bd2b5f853e59c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7467638023776237928, guid: aede4421280464399a7bd2b5f853e59c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3018,11 +3018,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7467638023776237928, guid: aede4421280464399a7bd2b5f853e59c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 609.8843
       objectReference: {fileID: 0}
     - target: {fileID: 7467638023776237928, guid: aede4421280464399a7bd2b5f853e59c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -110.65802
       objectReference: {fileID: 0}
     - target: {fileID: 7467638023776237928, guid: aede4421280464399a7bd2b5f853e59c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3588,7 +3588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10.323, y: 141.894}
+  m_AnchoredPosition: {x: -10.322998, y: 141.894}
   m_SizeDelta: {x: -69.821, y: -283.787}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1002530712
@@ -4748,7 +4748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1553908455
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5134,7 +5134,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1683951744}
-  - component: {fileID: 1683951745}
   - component: {fileID: 1683951746}
   - component: {fileID: 1683951747}
   - component: {fileID: 1683951748}
@@ -5161,18 +5160,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1683951745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1683951743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c38cd8de05e084bd9bd47a46a373fd69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1683951746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5476,7 +5463,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1683951748}
         m_TargetAssemblyTypeName: BingoCity.UIManager, Assembly-CSharp
-        m_MethodName: OnBackButton
+        m_MethodName: OnSummaryExitButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

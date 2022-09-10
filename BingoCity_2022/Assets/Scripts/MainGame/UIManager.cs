@@ -189,6 +189,11 @@ namespace BingoCity
             EventManager.onGetNextBallButtonEvent?.Invoke();
         }
 
+        public void OnSummaryExitButton(int loadSceneIndex)
+        {
+            GameSummary.UpdateRewardsToUserAccount();
+            OnBackButton(loadSceneIndex);
+        }
         public void OnBackButton(int loadSceneIndex)
         {
             GameConfigs.LoadDebugConfigPage = false;
