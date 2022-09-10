@@ -23,6 +23,7 @@ MonoBehaviour:
   buyPopupMaxWindowCount: 1
   buyPopupAutoTimer: 1
   buyAdditionalRollCount: 2
+  buyAdditionalRollCost: 30
   cardSpanCount: 50
   timerDuration: 25
   raidTokenCapCount: 3

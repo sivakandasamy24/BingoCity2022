@@ -23,7 +23,13 @@ namespace BingoCity
         private void UpdateTopHudData()
         {
             xpText.text = UserInventoryData.UserXpcount.ToString();
+            
+            if (UserInventoryData.UserCoins < 0)
+                UserInventoryData.UserCoins = 0;
             coinText.text = UserInventoryData.UserCoins.ToString();
+            
+            if (UserInventoryData.UserChips < 0)
+                UserInventoryData.UserChips = 0;
             chipText.text = UserInventoryData.UserChips.ToString();
         }
         public void LoadScene(int loadSceneIndex)

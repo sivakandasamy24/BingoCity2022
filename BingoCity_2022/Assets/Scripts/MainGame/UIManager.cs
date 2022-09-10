@@ -18,6 +18,8 @@ namespace BingoCity
         [SerializeField] private Button rollButton;
         [SerializeField] private GameObject popupParent;
         [SerializeField] private GameObject buyRollPopup;
+        [SerializeField] private TextMeshProUGUI buyRollCountText;
+        [SerializeField] private TextMeshProUGUI buyRollCostText;
         [SerializeField] private GameObject summaryPopup;
         [SerializeField] private GameObject roundOver;
 
@@ -135,6 +137,8 @@ namespace BingoCity
                 {
                     print($"--time--ShowBuy ENABLE--");
                     popupParent.gameObject.SetActive(true);
+                    buyRollCountText.text = $"Get {gameConfigData.BuyAdditionalRollCount} Extra Rolls";
+                    buyRollCostText.text = gameConfigData.BuyAdditionalRollCost.ToString();
                     buyRollPopup.SetActive(true);
                 })
                 .Subscribe().AddTo(this);
@@ -207,6 +211,7 @@ namespace BingoCity
             if (isBuying)
             {
                 _autoPopupShowCount--;
+                UserInventoryData.UserChips -= gameConfigData.BuyAdditionalRollCost;
                 _currentRollCount += gameConfigData.BuyAdditionalRollCount;
                 UpdateRollText();
             }

@@ -12,6 +12,7 @@ namespace BingoCity
         [SerializeField] private int buyPopupMaxWindowCount = 1; //GS additional click buy count
         [SerializeField] private int buyPopupAutoTimer = 1; // GS autoTimerWaiting timerIn sec
         [SerializeField] private int buyAdditionalRollCount = 2; //GS additional click buy count
+        [SerializeField] private int buyAdditionalRollCost = 30; //GS additional click buy count
         [SerializeField] private int cardSpanCount = 60; //GS additional click buy count
         [SerializeField] private int timerDuration = 10; //GS Timer to end the game
         
@@ -25,6 +26,7 @@ namespace BingoCity
         public int BuyPopupMaxWindowCount => buyPopupMaxWindowCount;
         public List<string> ItemPattern => itemPattern;
         public int BuyPopupAutoTimer => buyPopupAutoTimer;
+        public int BuyAdditionalRollCost => buyAdditionalRollCost;
         
         public int TimerDuration => GameConfigs.LoadDebugConfigPage?GameConfigs.timerDuration:timerDuration;
         public int BuyAdditionalRollCount => GameConfigs.LoadDebugConfigPage?GameConfigs.buyAdditionalRollCount:buyAdditionalRollCount;
