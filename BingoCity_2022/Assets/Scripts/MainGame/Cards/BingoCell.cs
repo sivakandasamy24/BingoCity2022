@@ -46,7 +46,14 @@ namespace BingoCity
 
         public void DoMarkCellAsDaub()
         {
+            GameSummary.XpOnRound++;
             UpdateCellDaubUI(true);
+            if(gameObject.activeInHierarchy)
+                daubAnimationPrefab.GetComponent<Animator>().Play($"Daub");
+            else
+            {
+                daubAnimationPrefab.SetActive(false);
+            }
             // Destroy(gameObject);
         }
 

@@ -8,9 +8,11 @@ namespace BingoCity
 {
     public class EventManager : MonoBehaviour
     {
-        public static Action<List<int>> BallRollOutEvent;
+        public static Action<List<int>> onBallRollOutEvent;
+        public static Action onBingoEvent;
+        public static Action onGameEndEvent;
         
-        public static Action OnRestartGameButtonEvent;
-        public static Action OnGetNextBallButtonEvent;
+        public static Action onRestartGameButtonEvent;
+        public static Action onGetNextBallButtonEvent;
     }
 }

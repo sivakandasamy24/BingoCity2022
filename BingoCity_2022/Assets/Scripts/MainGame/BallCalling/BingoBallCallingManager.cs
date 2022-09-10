@@ -10,12 +10,11 @@ namespace BingoCity
         [SerializeField] private BingoBall bingoBallPrefabs;
 
 
-        private UIManager _uiManager;
+        
 
         private void Start()
         {
             ResetBallPanels();
-            _uiManager = GetComponent<UIManager>();
         }
 
         private void OnEnable()
@@ -32,27 +31,27 @@ namespace BingoCity
         {
             if (canEnable)
             {
-                EventManager.OnGetNextBallButtonEvent += GetNextBall;
-                EventManager.OnRestartGameButtonEvent += ResetBallPanels;
+                EventManager.onGetNextBallButtonEvent += GetNextBall;
+                EventManager.onRestartGameButtonEvent += ResetBallPanels;
             }
             else
             {
-                EventManager.OnGetNextBallButtonEvent -= GetNextBall;
-                EventManager.OnRestartGameButtonEvent -= ResetBallPanels;
+                EventManager.onGetNextBallButtonEvent -= GetNextBall;
+                EventManager.onRestartGameButtonEvent -= ResetBallPanels;
             }
         }
 
         private void GetNextBall()
         {
             var calledBalls = new List<int>();
-            for (var i = 0; i < _uiManager.GameConfigData.MaxNumberOfBallPerClick; i++)
+            for (var i = 0; i < GameConfigs.GameConfigData.MaxNumberOfBallPerClick; i++)
             {
                 calledBalls.Add(Utils.GetRandUnCalledBallNumber());
             }
 
             ShowBallOnPanel(calledBalls);
             print($"--siva--generatedBalls{string.Join(",", calledBalls)}");
-            EventManager.BallRollOutEvent?.Invoke(calledBalls);
+            EventManager.onBallRollOutEvent?.Invoke(calledBalls);
         }
 
         private void ShowBallOnPanel(List<int> calledBalls)
@@ -63,6 +62,8 @@ namespace BingoCity
                 var bingoBall = Instantiate(bingoBallPrefabs, bingoBallHolderParent.transform);
                 bingoBall.SetData(calledBallnumber);
             }
+            bingoBallHolderParent.SetActive(false);
+            bingoBallHolderParent.SetActive(true);
         }
 
         private void ClearExistingBalls()
