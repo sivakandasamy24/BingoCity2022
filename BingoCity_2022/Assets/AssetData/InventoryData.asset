@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aafde25d9e8144c7be511454124d1167, type: 3}
+  m_Name: InventoryData
+  m_EditorClassIdentifier: 
+  inventoryMultiLevelData:
+  - inventoryId: 1
+    levelData:
+    - level: 1
+      gsCardImage: {fileID: 21300000, guid: 543be786b13d94eb6a1cbbee6bd6d579, type: 3}
+      gsSummaryIcon: {fileID: 21300000, guid: 543be786b13d94eb6a1cbbee6bd6d579, type: 3}
+  - inventoryId: 2
+    levelData:
+    - level: 1
+      gsCardImage: {fileID: 21300000, guid: 19ab6f8a77d4b483bae3a4e3cc2fb381, type: 3}
+      gsSummaryIcon: {fileID: 21300000, guid: 19ab6f8a77d4b483bae3a4e3cc2fb381, type: 3}
+  - inventoryId: 3
+    levelData:
+    - level: 1
+      gsCardImage: {fileID: 21300000, guid: 62aa37ea01ea04dccbdb1bb2240264bc, type: 3}
+      gsSummaryIcon: {fileID: 21300000, guid: 62aa37ea01ea04dccbdb1bb2240264bc, type: 3}
+  - inventoryId: 4
+    levelData:
+    - level: 0
+      gsCardImage: {fileID: 21300000, guid: dfeecf3aeac094ab9ad89dfc2b071ab5, type: 3}
+      gsSummaryIcon: {fileID: 21300000, guid: dfeecf3aeac094ab9ad89dfc2b071ab5, type: 3}
+  - inventoryId: 5
+    levelData:
+    - level: 1
+      gsCardImage: {fileID: 21300000, guid: fcc629046941b48d38b5e21cd63c78de, type: 3}
+      gsSummaryIcon: {fileID: 21300000, guid: fcc629046941b48d38b5e21cd63c78de, type: 3}
+  - inventoryId: 6
+    levelData:
+    - level: 1
+      gsCardImage: {fileID: 21300000, guid: 1272269101ecc4fe897f7a858202984b, type: 3}
+      gsSummaryIcon: {fileID: 21300000, guid: 1272269101ecc4fe897f7a858202984b, type: 3}
+  - inventoryId: 7
+    levelData:
+    - level: 1
+      gsCardImage: {fileID: 21300000, guid: 80e95a35146844a57830a581a741b89f, type: 3}
+      gsSummaryIcon: {fileID: 21300000, guid: 80e95a35146844a57830a581a741b89f, type: 3}

@@ -26,20 +26,22 @@ namespace BingoCity
 
         public void RevealItem(int itemId)
         {
-           
             Observable.ReturnUnit()
                 .Delay(TimeSpan.FromSeconds(0.5))
                 .Do(_ =>
                 {
                     var itemContainer = itemContainers.Find(x => x.PatternId == itemId);
-                    
+
                     if (itemContainer != null)
                     {
+                        GameSummary.UpdateInventoryRewards(itemId,1);
+                        
                         if (!gameObject.activeInHierarchy)
                         {
                             itemContainer.ItemParent.gameObject.SetActive(false);
                             return;
                         }
+
                         var animator = itemContainer.ItemParent.GetComponent<Animator>();
                         if (animator != null)
                         {
@@ -56,11 +58,14 @@ namespace BingoCity
 
         public void SetItemPosition(int itemId, Vector2 itemCellPosition)
         {
+            var inventoryData = GameConfigs.InventoryAssetData.GetInventoryData(itemId);
             var itemContainer = itemContainers.Find(x => x.PatternId == itemId);
             if (itemContainer != null && !itemContainer.ItemParent.activeSelf)
             {
                 itemContainer.ItemParent.GetComponent<RectTransform>().anchoredPosition = itemCellPosition;
                 itemContainer.ItemParent.SetActive(true);
+                if (inventoryData != null)
+                    itemContainer.ItemImage.sprite = inventoryData.GsCardImage;
             }
         }
     }
@@ -74,6 +79,11 @@ namespace BingoCity
 
         public int PatternId => patternId;
         public GameObject ItemParent => itemParent;
-        public Image ItemImage => itemImage;
+
+        public Image ItemImage
+        {
+            get => itemImage;
+            set => itemImage = value;
+        }
     }
 }

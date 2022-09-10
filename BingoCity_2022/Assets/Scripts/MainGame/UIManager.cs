@@ -11,6 +11,8 @@ namespace BingoCity
     public class UIManager : MonoBehaviour
     {
         [SerializeField] private GameConfigData gameConfigData;
+        [SerializeField] private  InventoryData inventoryAssetData;
+        
         [SerializeField] private TextMeshProUGUI rollCountText;
         [SerializeField] private TextMeshProUGUI raidTokentText;
         [SerializeField] private Button rollButton;
@@ -26,6 +28,7 @@ namespace BingoCity
         private void Awake()
         {
             GameConfigs.GameConfigData = gameConfigData;
+            GameConfigs.InventoryAssetData = inventoryAssetData;
             Utils.ballCallingSpan = gameConfigData.CardSpanCount;
             
         }
