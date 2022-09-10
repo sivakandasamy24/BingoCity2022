@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12fb2cc56a43d4793b5d7348c407ce9c, type: 3}
+  m_Name: CharacterCard
+  m_EditorClassIdentifier: 
+  characterData:
+  - unlockedStar: 0
+    tokenCollected: 5
+    characterImage: {fileID: 21300000, guid: 543be786b13d94eb6a1cbbee6bd6d579, type: 3}
+    starTokenCount: 050000000a00000014000000
+    upgradeCoin: f4010000e8030000dc050000
+    upgradedImage:
+    - {fileID: 21300000, guid: 19ab6f8a77d4b483bae3a4e3cc2fb381, type: 3}
+    - {fileID: 21300000, guid: 62aa37ea01ea04dccbdb1bb2240264bc, type: 3}
+    - {fileID: 21300000, guid: dfeecf3aeac094ab9ad89dfc2b071ab5, type: 3}
+  - unlockedStar: 1
+    tokenCollected: 9
+    characterImage: {fileID: 21300000, guid: 19ab6f8a77d4b483bae3a4e3cc2fb381, type: 3}
+    starTokenCount: 050000000a00000014000000
+    upgradeCoin: f4010000e8030000dc050000
+    upgradedImage:
+    - {fileID: 21300000, guid: dfeecf3aeac094ab9ad89dfc2b071ab5, type: 3}
+    - {fileID: 21300000, guid: 62aa37ea01ea04dccbdb1bb2240264bc, type: 3}
+    - {fileID: 21300000, guid: 543be786b13d94eb6a1cbbee6bd6d579, type: 3}
+  - unlockedStar: 0
+    tokenCollected: 0
+    characterImage: {fileID: 21300000, guid: 62aa37ea01ea04dccbdb1bb2240264bc, type: 3}
+    starTokenCount: 050000000a00000014000000
+    upgradeCoin: f4010000e8030000dc050000
+    upgradedImage:
+    - {fileID: 21300000, guid: 543be786b13d94eb6a1cbbee6bd6d579, type: 3}
+    - {fileID: 21300000, guid: 19ab6f8a77d4b483bae3a4e3cc2fb381, type: 3}
+    - {fileID: 21300000, guid: 62aa37ea01ea04dccbdb1bb2240264bc, type: 3}

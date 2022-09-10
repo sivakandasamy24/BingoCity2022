@@ -5,38 +5,38 @@ using UnityEngine.UI;
 public class CharacterManager : MonoBehaviour
 {
     [SerializeField] private GameObject CharacterCard;
+    [SerializeField] private List<GameObject> UpgradeImageContainer;
     [SerializeField] private Transform Content;
     [SerializeField] private Image[] IconImages;
-    [SerializeField] private List<CharacterCardScriptableObjects> Character;
+    [SerializeField] private CharacterCardScriptableObjects characterCardScriptableObjects;
+    
+    public CharacterCardScriptableObjects CharacterCardScriptableObjects => characterCardScriptableObjects;
+    private CharacterManager _self;
 
     private void OnEnable()
     {
-        List<Sprite> upgradedImages = new List<Sprite>();
-        for (int i = 0; i < Character.Count; i++)
+        _self = this;
+        for (int i = 0; i < CharacterCardScriptableObjects.characterData.Count; i++)
         {
             var prefab = Instantiate(CharacterCard, Content);
-            bool upgraded = prefab.GetComponent<CharcterCardUI>().AssigningCharacterCardValues(Character[i].Ratings, 4,Character[i].CoinCount,Character[i].Character);
-            if (upgraded)
-            {
-                upgradedImages.Add(Character[i].Character);
-            }
-        }
-        UpdateUpgradedCard(upgradedImages);
-    }
-
-    private void UpdateUpgradedCard(List<Sprite> upgradedCharcter)
-    {
-        for (int i = 0; i < upgradedCharcter.Count; i++)
-        {
-            IconImages[i].sprite = upgradedCharcter[i];
+            prefab.GetComponent<CharcterCardUI>().AssigningCharacterCardValues(CharacterCardScriptableObjects.characterData[i], _self);
         }
     }
-
+    
     private void OnDisable()
     {
         foreach (Transform item in Content.GetComponentInChildren<Transform>())
         {
             Destroy(item.gameObject);
+        }
+    }
+
+    public void AttachUpgradedCharacter(int index, Sprite upgradedImage)
+    {
+        var image = UpgradeImageContainer[index].GetComponent<Image>();
+        if (image)
+        {
+            image.sprite = upgradedImage;
         }
     }
 }
