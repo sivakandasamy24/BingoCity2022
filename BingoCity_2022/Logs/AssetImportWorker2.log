@@ -1470,3 +1470,382 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003309 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/skandasamy/Siva/UnityProjects/SivaScoply/BingoCity_2022/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image /Users/skandasamy/Siva/UnityProjects/SivaScoply/BingoCity_2022/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+2022-09-10 10:50:08.846 Unity[46487:1053383] [XcodeApplications] Expected com.apple.dt.Xcode CFBundleIdentifier but found com.microsoft.VSCode in /Applications/Visual Studio Code.app/Contents/Info.plist
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.36 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.018 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2021ms)
+		BeginReloadAssembly (516ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (28ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (213ms)
+		EndReloadAssembly (1358ms)
+			LoadAssemblies (244ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (530ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (66ms)
+			SetupLoadedEditorAssemblies (539ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (53ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (80ms)
+				ProcessInitializeOnLoadAttributes (362ms)
+				ProcessInitializeOnLoadMethodAttributes (39ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.17 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3701 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (71.2 KB). Loaded Objects now: 4247.
+Memory consumption went from 267.8 MB to 267.7 MB.
+Total: 4.576076 ms (FindLiveObjects: 0.470153 ms CreateObjectMapping: 0.273559 ms MarkObjects: 3.222492 ms  DeleteObjects: 0.608738 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003028 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/skandasamy/Siva/UnityProjects/SivaScoply/BingoCity_2022/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image /Users/skandasamy/Siva/UnityProjects/SivaScoply/BingoCity_2022/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+2022-09-10 11:08:19.413 Unity[46487:1053383] [XcodeApplications] Expected com.apple.dt.Xcode CFBundleIdentifier but found com.microsoft.VSCode in /Applications/Visual Studio Code.app/Contents/Info.plist
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.95 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.979 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1982ms)
+		BeginReloadAssembly (353ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (22ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (144ms)
+		EndReloadAssembly (1496ms)
+			LoadAssemblies (146ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (496ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (74ms)
+			SetupLoadedEditorAssemblies (714ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (64ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (96ms)
+				ProcessInitializeOnLoadAttributes (468ms)
+				ProcessInitializeOnLoadMethodAttributes (83ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 3.03 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3701 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (71.2 KB). Loaded Objects now: 4250.
+Memory consumption went from 268.0 MB to 267.9 MB.
+Total: 15.954738 ms (FindLiveObjects: 2.203362 ms CreateObjectMapping: 1.210540 ms MarkObjects: 12.059254 ms  DeleteObjects: 0.451448 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.010575 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/skandasamy/Siva/UnityProjects/SivaScoply/BingoCity_2022/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image /Users/skandasamy/Siva/UnityProjects/SivaScoply/BingoCity_2022/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+2022-09-10 11:13:04.841 Unity[46487:1053383] [XcodeApplications] Expected com.apple.dt.Xcode CFBundleIdentifier but found com.microsoft.VSCode in /Applications/Visual Studio Code.app/Contents/Info.plist
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.10 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.356 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3358ms)
+		BeginReloadAssembly (452ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (25ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (145ms)
+		EndReloadAssembly (2620ms)
+			LoadAssemblies (322ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (918ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (147ms)
+			SetupLoadedEditorAssemblies (1139ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (92ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (162ms)
+				ProcessInitializeOnLoadAttributes (785ms)
+				ProcessInitializeOnLoadMethodAttributes (93ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (13ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 3.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3701 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (71.1 KB). Loaded Objects now: 4253.
+Memory consumption went from 268.2 MB to 268.2 MB.
+Total: 7.530401 ms (FindLiveObjects: 0.491741 ms CreateObjectMapping: 0.437914 ms MarkObjects: 5.591912 ms  DeleteObjects: 1.006750 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 14301.300626 seconds.
+  path: Assets/Packages/TournamentV2/Animaitons/GameScreen/Tourney_cont_BingoAnim_1.controller
+  artifactKey: Guid(b5c047b7c1ca54c058edc0ceafcab8f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/TournamentV2/Animaitons/GameScreen/Tourney_cont_BingoAnim_1.controller using Guid(b5c047b7c1ca54c058edc0ceafcab8f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b0db1f1b64b13cc4bb06faa0c14a528') in 0.686006 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 47.817857 seconds.
+  path: Assets/Images/Tokens/1.png
+  artifactKey: Guid(543be786b13d94eb6a1cbbee6bd6d579) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/Tokens/1.png using Guid(543be786b13d94eb6a1cbbee6bd6d579) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: '4028dfce34f1d4ac02e03e7f384d713b') in 0.361856 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.983866 seconds.
+  path: Assets/Images/GameScreen
+  artifactKey: Guid(ccb8f439a15dd478fbe1ec42dd81c942) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen using Guid(ccb8f439a15dd478fbe1ec42dd81c942) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74cdfb8d23afe06ded8bbbe1f8a2d90c') in 0.003696 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.681251 seconds.
+  path: Assets/Images/GameScreen/Bingo PR.jpg
+  artifactKey: Guid(15c49f57846aa47f8b157c023d28a5f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Bingo PR.jpg using Guid(15c49f57846aa47f8b157c023d28a5f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: '2b1c06afa5afc69794f9caaf3fc3d129') in 1.172082 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.549117 seconds.
+  path: Assets/Images/GameScreen/Bingo PR.jpg
+  artifactKey: Guid(15c49f57846aa47f8b157c023d28a5f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Bingo PR.jpg using Guid(15c49f57846aa47f8b157c023d28a5f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: '5c7d4b66aab0b5a5837f68d8a2fcf595') in 0.187929 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2690.928862 seconds.
+  path: Assets/Images/GameScreen/Dummy
+  artifactKey: Guid(8e73a961e24654975a6bafe3fb3c4ce0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Dummy using Guid(8e73a961e24654975a6bafe3fb3c4ce0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a54da2123562660971430769c46899c6') in 0.013177 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.954327 seconds.
+  path: Assets/Images/GameScreen/ArtFiles
+  artifactKey: Guid(1c50c9d5adb274c7f863968b59c66e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/ArtFiles using Guid(1c50c9d5adb274c7f863968b59c66e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8d72b9f06a244887af4b70a22705b57') in 0.002850 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 22.432942 seconds.
+  path: Assets/Images/GameScreen/B.png
+  artifactKey: Guid(d033a1cd7f0f840a9a4b1d0c245745ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/B.png using Guid(d033a1cd7f0f840a9a4b1d0c245745ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: 'ea3068e373c741dafb5809b379953cfa') in 0.154315 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 19.843829 seconds.
+  path: Assets/Images/GameScreen/Back.png
+  artifactKey: Guid(a8df34c5484c6456880d4efee58ac490) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Back.png using Guid(a8df34c5484c6456880d4efee58ac490) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: '0b9ba7615282428f0cb267ea7c1028bf') in 0.015371 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.339136 seconds.
+  path: Assets/Images/GameScreen/Bottom UI Base.png
+  artifactKey: Guid(49f88fbe2f3634596a5faf64efc05433) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Bottom UI Base.png using Guid(49f88fbe2f3634596a5faf64efc05433) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: 'e372fd719b54918beabff7ca7b7976c9') in 0.308779 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000165 seconds.
+  path: Assets/Images/GameScreen/Roll Active.png
+  artifactKey: Guid(d78cf4c8162594dd78e883850058e9d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Roll Active.png using Guid(d78cf4c8162594dd78e883850058e9d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: '9a81abbd22b1b6c862164e6599d3bc22') in 0.011553 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000058 seconds.
+  path: Assets/Images/GameScreen/Transparent Bar.png
+  artifactKey: Guid(065049536b68c454987725734e2816bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Transparent Bar.png using Guid(065049536b68c454987725734e2816bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: '4ee1a2893931b11f2c7843e473dca3ce') in 0.015800 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000145 seconds.
+  path: Assets/Images/GameScreen/Timer.png
+  artifactKey: Guid(e09ead5af03e94327b6daa14bf4fc54f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Timer.png using Guid(e09ead5af03e94327b6daa14bf4fc54f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: 'e9cdc8dd1ef0ad6328dc90a10ded09ed') in 0.011071 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000076 seconds.
+  path: Assets/Images/GameScreen/Star White.png
+  artifactKey: Guid(ee9126087169c4069a7564c14371d16a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Star White.png using Guid(ee9126087169c4069a7564c14371d16a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: 'ddddf9d27e2d90997eea6706c714aee9') in 0.017919 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000059 seconds.
+  path: Assets/Images/GameScreen/I.png
+  artifactKey: Guid(850e7bc0cf89d4346aaeb99ff0d45306) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/I.png using Guid(850e7bc0cf89d4346aaeb99ff0d45306) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: '9b5d300165320421670f2f99acf76ab0') in 0.015874 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000116 seconds.
+  path: Assets/Images/GameScreen/Meter Base.png
+  artifactKey: Guid(693fe3ad13a9c48559fd07d1125866b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Meter Base.png using Guid(693fe3ad13a9c48559fd07d1125866b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: '2635b37d599a87d34ddf6746c3150b4a') in 0.015538 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/Images/GameScreen/Satr Red.png
+  artifactKey: Guid(dc7f6949a38434433a0ae40261626fda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Satr Red.png using Guid(dc7f6949a38434433a0ae40261626fda) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: 'f29f0a7f032ae4b56dcae94078f4e90a') in 0.014433 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000102 seconds.
+  path: Assets/Images/GameScreen/Normal Panel.png
+  artifactKey: Guid(c920d35a05bc44373b04dfbe0e865dc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Normal Panel.png using Guid(c920d35a05bc44373b04dfbe0e865dc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: '0d09b8f7548b6c5f029a32037b1fa7e1') in 0.015085 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000065 seconds.
+  path: Assets/Images/GameScreen/Extra CardsbBase.png
+  artifactKey: Guid(604fab264dd1b4163ab4a833b32fbe6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Extra CardsbBase.png using Guid(604fab264dd1b4163ab4a833b32fbe6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: 'ec4a4683dec4c41b3c2ec8ac96dd1244') in 0.068432 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000098 seconds.
+  path: Assets/Images/GameScreen/G.png
+  artifactKey: Guid(200c9fe4ed08e4c6fa5fc74eed902c33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/G.png using Guid(200c9fe4ed08e4c6fa5fc74eed902c33) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: 'b2c4f71fc57c1ca2d044a2ab26952867') in 0.020235 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000143 seconds.
+  path: Assets/Images/GameScreen/Bg.png
+  artifactKey: Guid(b9cf319cd8a6d478abbb8adc38f425e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Bg.png using Guid(b9cf319cd8a6d478abbb8adc38f425e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: 'ee3958805b93a42ad8ce818ac671ec96') in 0.065132 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/Images/GameScreen/Roll Deactive.png
+  artifactKey: Guid(fa432f6e8fc7f4031aed5f57777f3648) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Roll Deactive.png using Guid(fa432f6e8fc7f4031aed5f57777f3648) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: 'a26843e601944cc0ecd76b9087658617') in 0.019086 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000074 seconds.
+  path: Assets/Images/GameScreen/N.png
+  artifactKey: Guid(7340395d449c34f919f6ab7e405f46dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/N.png using Guid(7340395d449c34f919f6ab7e405f46dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: 'd47b8177bf056bdf3e9a7d2a47493a1c') in 0.013939 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000102 seconds.
+  path: Assets/Images/GameScreen/Meter Bar.png
+  artifactKey: Guid(d620e852fbe7044e38ad6eff23c09fe9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Meter Bar.png using Guid(d620e852fbe7044e38ad6eff23c09fe9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: '720e6a2b20ee07cfcb460ab2693ee749') in 0.017588 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000154 seconds.
+  path: Assets/Images/GameScreen/Selected Panel.png
+  artifactKey: Guid(f4ed0da43b55f4191b766119fa3b7c96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Selected Panel.png using Guid(f4ed0da43b55f4191b766119fa3b7c96) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: 'cd2e9976d3c8995d303df8a10bc2d75c') in 0.017586 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000121 seconds.
+  path: Assets/Images/GameScreen/O.png
+  artifactKey: Guid(e30cfc233087346249e5556c7a21d4a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/O.png using Guid(e30cfc233087346249e5556c7a21d4a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: 'a7481a765b051ab2b43ce1dba591bcdb') in 0.017073 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000111 seconds.
+  path: Assets/Images/GameScreen/Collectibles_.png
+  artifactKey: Guid(e8f338559da574ac59114256b0a1c974) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Collectibles_.png using Guid(e8f338559da574ac59114256b0a1c974) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: '85752329d193c796194cb6cbe7e62abd') in 0.013691 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000108 seconds.
+  path: Assets/Images/GameScreen/Cell.png
+  artifactKey: Guid(71c244f4d0dcb434f99119c46732d34b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/GameScreen/Cell.png using Guid(71c244f4d0dcb434f99119c46732d34b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) WARNING: RGBA Compressed ASTC6X6 UNorm format is not supported, decompressing texture
+ -> (artifact id: 'b9e9a53e038b9231d5058ce56cf11dd6') in 0.011398 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+AssetImportWorker is now disconnected from the server
+Process exiting
