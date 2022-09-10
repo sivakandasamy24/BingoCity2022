@@ -211,6 +211,8 @@ namespace BingoCity
 
         private void PlayBingoAnimation()
         {
+            if(!gameObject.activeInHierarchy) return;
+            
             var animator = bingoAnimation.GetComponent<Animator>();
             
 

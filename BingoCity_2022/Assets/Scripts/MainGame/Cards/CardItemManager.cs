@@ -11,10 +11,10 @@ namespace BingoCity
         [SerializeField] private List<ItemContainers> itemContainers;
         [SerializeField] private string revealAnimName;
 
-        private void Awake()
-        {
-            ResetItems();
-        }
+        // private void Start()
+        // {
+        //     ResetItems();
+        // }
 
         private void SetItemVisible(bool canMakeVisibleOn)
         {
@@ -26,13 +26,20 @@ namespace BingoCity
 
         public void RevealItem(int itemId)
         {
+           
             Observable.ReturnUnit()
                 .Delay(TimeSpan.FromSeconds(0.5))
                 .Do(_ =>
                 {
                     var itemContainer = itemContainers.Find(x => x.PatternId == itemId);
+                    
                     if (itemContainer != null)
                     {
+                        if (!gameObject.activeInHierarchy)
+                        {
+                            itemContainer.ItemParent.gameObject.SetActive(false);
+                            return;
+                        }
                         var animator = itemContainer.ItemParent.GetComponent<Animator>();
                         if (animator != null)
                         {
