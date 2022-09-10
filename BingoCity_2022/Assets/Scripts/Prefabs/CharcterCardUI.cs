@@ -102,10 +102,12 @@ public class CharcterCardUI : MonoBehaviour
     {
         if (_upgradeCoinAmout <= _userCoins)
         {
+            cardButton.enabled = false;
             _characterData.UnlockedStar = _unlockedStar;
             _userCoins = _userCoins - _upgradeCoinAmout;
             RatingGameObjects[_unlockedStar - 1].SetStarActive();
             Tokens.text = "0" + "/" + _characterData.StarTokenCount[_unlockedStar];
+            CoinCount.text = _characterData.UpgradeCoin[_unlockedStar].ToString();
             _characterManager.AttachUpgradedCharacter(_unlockedStar - 1, _characterData.UpgradedImage[_unlockedStar - 1]);
         }
         else

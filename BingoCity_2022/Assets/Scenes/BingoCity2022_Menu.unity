@@ -28156,6 +28156,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterCard: {fileID: 2595312970971609445, guid: 9cb5ff926c09543789ce23842edae553, type: 3}
+  UpgradeImageContainer:
+  - {fileID: 353328978}
+  - {fileID: 1645923820}
+  - {fileID: 1588715010}
   Content: {fileID: 1636010218}
   IconImages:
   - {fileID: 353328980}
@@ -28163,12 +28167,7 @@ MonoBehaviour:
   - {fileID: 1588715012}
   - {fileID: 1466486556}
   - {fileID: 1623389187}
-  Character:
-  - {fileID: 11400000, guid: e50406e05a73d4d1db30600bee19a7e5, type: 2}
-  - {fileID: 11400000, guid: a30c45fba4e9841d8b65320db37fe6fe, type: 2}
-  - {fileID: 11400000, guid: ddb60c2f8306c4d3c81d16dd414546e4, type: 2}
-  - {fileID: 11400000, guid: 17fa02c09b2ef4e30b96f60c9a5350f0, type: 2}
-  - {fileID: 11400000, guid: da8d06e97349845fa857e3a7def6c3b4, type: 2}
+  characterCardScriptableObjects: {fileID: 11400000, guid: e50b76888b94242788d2b183c32ba43e, type: 2}
 --- !u!1001 &1915291629
 PrefabInstance:
   m_ObjectHideFlags: 0
