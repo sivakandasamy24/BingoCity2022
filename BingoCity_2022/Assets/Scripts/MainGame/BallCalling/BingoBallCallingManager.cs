@@ -62,6 +62,8 @@ namespace BingoCity
                 var bingoBall = Instantiate(bingoBallPrefabs, bingoBallHolderParent.transform);
                 bingoBall.SetData(calledBallnumber);
             }
+            bingoBallHolderParent.SetActive(false);
+            bingoBallHolderParent.SetActive(true);
         }
 
         private void ClearExistingBalls()
