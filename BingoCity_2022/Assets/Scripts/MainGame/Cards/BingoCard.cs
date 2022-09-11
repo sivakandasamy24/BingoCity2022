@@ -230,7 +230,7 @@ namespace BingoCity
                 .Do(_ =>
                 {
                     bingoAnimation.SetActive(true);
-                    SoundUtils.PlaySoundOnce(AudioTrackNames.Bingo);
+                    SoundUtils.PlaySoundOnce(AudioTrackNames.GsBingo);
                     animator.Play("Bingo", -1, 0f);
                 })
                 .Delay(TimeSpan.FromSeconds(bingoAnimationDuration))

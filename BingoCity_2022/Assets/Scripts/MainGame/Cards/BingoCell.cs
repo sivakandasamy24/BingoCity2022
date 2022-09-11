@@ -50,7 +50,7 @@ namespace BingoCity
             UpdateCellDaubUI(true);
             if (gameObject.activeInHierarchy)
             {
-                SoundUtils.PlaySoundOnce(AudioTrackNames.Daub);
+                SoundUtils.PlaySoundOnce(AudioTrackNames.GsDaub);
                 daubAnimationPrefab.GetComponent<Animator>().Play($"Daub");
             }
             else

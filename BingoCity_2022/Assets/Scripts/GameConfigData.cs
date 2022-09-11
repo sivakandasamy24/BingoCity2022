@@ -44,14 +44,14 @@ namespace BingoCity
     
     public enum AudioTrackNames
     {
-        Daub ,
-        ItemReveal ,
-        PopupAppear ,
-        Click ,
-        PopupClose ,
-        RoundOver ,
-        Bingo  ,
-        SummaryPopup  
+        GsDaub ,
+        GsItemReveal ,
+        GsPopupAppear ,
+        GsClick ,
+        GsPopupClose ,
+        GsRoundOver ,
+        GsBingo  ,
+        GsSummaryPopup  
     }
     
     [Serializable]
