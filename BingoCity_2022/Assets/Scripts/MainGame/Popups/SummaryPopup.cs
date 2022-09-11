@@ -12,6 +12,7 @@ namespace BingoCity.Popups
         [SerializeField] private TextMeshProUGUI raidTokenText;
         [SerializeField] private GameObject tokenIconContainer;
         [SerializeField] private TokenIconSummary tokenIcon;
+        [SerializeField] private Text totalBingosText;
         [SerializeField] private Button exitButton;
 
         public void OnEnable()
@@ -26,6 +27,7 @@ namespace BingoCity.Popups
             xpText.text = GameSummary.XpOnRound.ToString();
             coinText.text = GameSummary.coinsGained.ToString();
             raidTokenText.text = GameSummary.raidTokenGained.ToString();
+            totalBingosText.text = $"Total Bingos : {GameSummary.bingoGained}";
         }
         private  void RemoveAllChild(GameObject parent)
         {
