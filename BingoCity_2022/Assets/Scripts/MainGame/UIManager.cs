@@ -11,10 +11,11 @@ namespace BingoCity
     public class UIManager : MonoBehaviour
     {
         [SerializeField] private GameConfigData gameConfigData;
-        [SerializeField] private  InventoryData inventoryAssetData;
-        
+        [SerializeField] private InventoryData inventoryAssetData;
+
         [SerializeField] private TextMeshProUGUI rollCountText;
         [SerializeField] private TextMeshProUGUI raidTokentText;
+        [SerializeField] private Slider raidTokenSlider;
         [SerializeField] private Button rollButton;
         [SerializeField] private GameObject popupParent;
         [SerializeField] private GameObject buyRollPopup;
@@ -32,8 +33,8 @@ namespace BingoCity
             GameConfigs.GameConfigData = gameConfigData;
             GameConfigs.InventoryAssetData = inventoryAssetData;
             Utils.ballCallingSpan = gameConfigData.CardSpanCount;
-            
         }
+
         private void OnEnable()
         {
             AddListeners(true);
@@ -43,7 +44,7 @@ namespace BingoCity
         {
             AddListeners(false);
         }
-        
+
         private void AddListeners(bool canEnable)
         {
             if (canEnable)
@@ -63,7 +64,7 @@ namespace BingoCity
             _timerScript = GetComponent<CircleTimerScript>();
             InitData();
         }
-        
+
         private void InitData()
         {
             _currentRollCount = gameConfigData.MaxNumberRoll;
@@ -75,13 +76,51 @@ namespace BingoCity
             _timerScript.RestartGame();
             UpdateRollText();
             UpdateRaidTokenCount();
+            raidTokenSlider.maxValue = gameConfigData.RaidTokenCapCount;
+            ResetProgressBar();
         }
 
         private void UpdateRaidTokenCount()
         {
             GameSummary.raidTokenGained = GameSummary.bingoGained / gameConfigData.RaidTokenCapCount;
-            raidTokentText.text = $"{GameSummary.bingoGained % gameConfigData.RaidTokenCapCount} / {gameConfigData.RaidTokenCapCount}";
+            //raidTokenSlider
+            var progressVal = GameSummary.bingoGained % gameConfigData.RaidTokenCapCount;
+            
+            if (progressVal == 0 && GameSummary.bingoGained>0)
+            {
+                LeanTween.value(gameObject, raidTokenSlider.value, gameConfigData.RaidTokenCapCount, 0.2f)
+                    .setOnUpdate(OnValueUpdateCallBack)
+                    .setEaseOutQuad().setOnComplete(ResetProgressBar);
+
+                raidTokentText.text = $"{gameConfigData.RaidTokenCapCount} / {gameConfigData.RaidTokenCapCount}";
+            }
+            else
+            {
+                LeanTween.value(gameObject, raidTokenSlider.value, progressVal, 0.4f)
+                    .setOnUpdate(OnValueUpdateCallBack)
+                    .setEaseOutQuad();
+
+                raidTokentText.text = $"{progressVal} / {gameConfigData.RaidTokenCapCount}";
+            }
         }
+
+        private void ResetProgressBar()
+        {
+            Observable.ReturnUnit()
+                .Delay(TimeSpan.FromSeconds(0.5f)).Do(_ =>
+                {
+                    LeanTween.value(gameObject, raidTokenSlider.value, 0, 0.2f)
+                        .setOnUpdate(OnValueUpdateCallBack)
+                        .setEaseOutQuad();
+                    raidTokentText.text = $"{0} / {gameConfigData.RaidTokenCapCount}";
+                }).Subscribe().AddTo(this);
+        }
+
+        private void OnValueUpdateCallBack(float newVal)
+        {
+            raidTokenSlider.value = newVal;
+        }
+
         private void UpdateRollText()
         {
             rollCountText.text = $" {_currentRollCount}";
@@ -113,7 +152,7 @@ namespace BingoCity
             _timerScript.StopTimerNow();
             rollButton.interactable = false;
             yield return new WaitForSeconds(0.5f); //daubAnimation delay
-            
+
             print($"--time--ShowGameOverPopup {GameConfigs.BingoAnimPlayTime}");
             Observable.ReturnUnit()
                 .Delay(TimeSpan.FromSeconds(GameConfigs.BingoAnimPlayTime <= 0 ? 0.75f : GameConfigs.BingoAnimPlayTime))
@@ -198,6 +237,7 @@ namespace BingoCity
             GameSummary.UpdateRewardsToUserAccount();
             OnBackButton(loadSceneIndex);
         }
+
         public void OnBackButton(int loadSceneIndex)
         {
             GameConfigs.LoadDebugConfigPage = false;
