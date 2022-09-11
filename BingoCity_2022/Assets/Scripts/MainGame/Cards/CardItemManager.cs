@@ -45,6 +45,7 @@ namespace BingoCity
                         var animator = itemContainer.ItemParent.GetComponent<Animator>();
                         if (animator != null)
                         {
+                            SoundUtils.PlaySoundOnce(AudioTrackNames.ItemReveal);
                             animator.Play(revealAnimName);
                         }
                     }

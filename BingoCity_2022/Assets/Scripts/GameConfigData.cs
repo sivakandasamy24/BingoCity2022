@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,13 +16,19 @@ namespace BingoCity
         [SerializeField] private int buyAdditionalRollCost = 30; //GS additional click buy count
         [SerializeField] private int cardSpanCount = 60; //GS additional click buy count
         [SerializeField] private int timerDuration = 10; //GS Timer to end the game
-        
         [SerializeField] private int raidTokenCapCount =2; //GS conversion from tot bingo to raidToken
         [SerializeField] private List<int> coinReward ; //GS reward count
         
+        [SerializeField] private List<AudioTracksData> audioTracks;
 
+
+        public AudioTracksData GetAudioFileData(AudioTrackNames soundName)
+        {
+           return  audioTracks.Find(x => x.audioName == soundName);
+        }
        
         public List<int> CoinReward => coinReward;
+        public List<AudioTracksData> AudioTracks => audioTracks;
         public int RaidTokenCapCount => raidTokenCapCount;
         public int BuyPopupMaxWindowCount => buyPopupMaxWindowCount;
         public List<string> ItemPattern => itemPattern;
@@ -33,5 +40,24 @@ namespace BingoCity
         public int CardSpanCount => GameConfigs.LoadDebugConfigPage?GameConfigs.cardSpanCount:cardSpanCount;
         public int MaxNumberRoll => GameConfigs.LoadDebugConfigPage?GameConfigs.maxNumberRoll:maxNumberRoll;
         public int MaxNumberOfBallPerClick => GameConfigs.LoadDebugConfigPage?GameConfigs.maxNumberOfBallPerClick:maxNumberOfBallPerClick;
+    }
+    
+    public enum AudioTrackNames
+    {
+        Daub ,
+        ItemReveal ,
+        PopupAppear ,
+        Click ,
+        PopupClose ,
+        RoundOver ,
+        Bingo  ,
+        SummaryPopup  
+    }
+    
+    [Serializable]
+    public class AudioTracksData
+    {
+        public AudioTrackNames audioName;
+        public AudioClip trackFile;
     }
 }

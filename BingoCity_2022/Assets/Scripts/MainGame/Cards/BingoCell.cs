@@ -48,8 +48,11 @@ namespace BingoCity
         {
             GameSummary.XpOnRound++;
             UpdateCellDaubUI(true);
-            if(gameObject.activeInHierarchy)
+            if (gameObject.activeInHierarchy)
+            {
+                SoundUtils.PlaySoundOnce(AudioTrackNames.Daub);
                 daubAnimationPrefab.GetComponent<Animator>().Play($"Daub");
+            }
             else
             {
                 daubAnimationPrefab.SetActive(false);

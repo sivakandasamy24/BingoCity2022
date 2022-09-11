@@ -28,3 +28,18 @@ MonoBehaviour:
   timerDuration: 25
   raidTokenCapCount: 3
   coinReward: 640000007d00000096000000
+  audioTracks:
+  - audioName: 0
+    trackFile: {fileID: 8300000, guid: 239b8e37d50914b8d827e03541d1c6f1, type: 3}
+  - audioName: 2
+    trackFile: {fileID: 8300000, guid: 86e3eae678780455a9cef34b7b46851a, type: 3}
+  - audioName: 3
+    trackFile: {fileID: 8300000, guid: b7def56c256404dcb88c91d0704409b9, type: 3}
+  - audioName: 4
+    trackFile: {fileID: 8300000, guid: d333fa0fec2154845892456888cfd323, type: 3}
+  - audioName: 5
+    trackFile: {fileID: 8300000, guid: ed7aa895b63d9485a9c60fb9179144c5, type: 3}
+  - audioName: 6
+    trackFile: {fileID: 8300000, guid: e4c5c5753d2cf4db2ad1e3b6fdf65435, type: 3}
+  - audioName: 7
+    trackFile: {fileID: 8300000, guid: 962e2e4d56dda4d7b8f5a34e3dcb8723, type: 3}
