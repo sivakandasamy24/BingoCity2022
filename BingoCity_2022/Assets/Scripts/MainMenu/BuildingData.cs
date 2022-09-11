@@ -7,24 +7,43 @@ public class BuildingData : MonoBehaviour
     public Image Attackimage;
     public List<GameObject> Stars;
     public ParticleSystem smoke;
+    private List<GameObject> _starList;
 
-    public void GotHit(int attackPower)
+    private void Start()
+    {
+        ResetBuildingStats();
+    }
+
+    public void ResetBuildingStats()
+    {
+        Debug.Log(Stars.Count);
+        _starList = Stars;
+        foreach (var star in Stars)
+        {
+            star.SetActive(true);
+        }
+        Attackimage.gameObject.SetActive(true);
+    }
+
+    public int GotHit(int attackPower)
     {
         smoke.Play();
-
+        int starsDestroyed = 0;
         for (int i = 0; i < attackPower; i++)
         {
-            if (Stars.Count > 0)
+            if (_starList.Count > 0)
             {
-                Stars[Stars.Count - 1].SetActive(false);
-                Stars.RemoveAt(Stars.Count - 1);
+                _starList[_starList.Count - 1].SetActive(false);
+                _starList.RemoveAt(_starList.Count - 1);
+                starsDestroyed++;
+                Debug.Log(Stars.Count);
             }
         }
-        if (Stars.Count <= 0)
+        if (_starList.Count <= 0)
         {
             Attackimage.gameObject.SetActive(false);
-            gameObject.SetActive(false);
         }
+        return starsDestroyed;
     }
 
 }
