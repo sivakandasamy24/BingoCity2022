@@ -23,9 +23,9 @@ MonoBehaviour:
   buyPopupMaxWindowCount: 1
   buyPopupAutoTimer: 1
   buyAdditionalRollCount: 2
-  buyAdditionalRollCost: 30
+  buyAdditionalRollCost: 10
   cardSpanCount: 50
-  timerDuration: 25
+  timerDuration: 45
   raidTokenCapCount: 3
   coinReward: 640000007d00000096000000
   audioTracks:
