@@ -12,6 +12,7 @@ namespace BingoCity
         [SerializeField] private TextMeshProUGUI chipText;
         [SerializeField] private TextMeshProUGUI coinText;
         [SerializeField] private Text buyCardCostText;
+        [SerializeField] private GameObject sagaVillagePanel;
         private void Awake()
         {
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
@@ -33,6 +34,8 @@ namespace BingoCity
             if (UserInventoryData.UserChips < 0)
                 UserInventoryData.UserChips = 0;
             chipText.text = UserInventoryData.UserChips.ToString();
+
+            ToggleVillageMap(false);
         }
         public void LoadScene(int loadSceneIndex)
         {
@@ -51,6 +54,11 @@ namespace BingoCity
         {
             GameConfigs.NumberOfCardToPlay = cardNumbers;
             buyCardCostText.text = (cardNumbers * 10).ToString();
+        }
+
+        public void ToggleVillageMap(bool canShow)
+        {
+            sagaVillagePanel.gameObject.SetActive(canShow);
         }
 
 
