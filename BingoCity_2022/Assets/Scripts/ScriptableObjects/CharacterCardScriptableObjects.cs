@@ -24,7 +24,12 @@ public class CharacterCardScriptableObjects : ScriptableObject
             get => unlockedStar;
             set => unlockedStar = value;
         }
-        public int TokenCollected => tokenCollected;
+       // public int TokenCollected => tokenCollected;
+        public int TokenCollected
+        {
+            get => tokenCollected;
+            set => tokenCollected = value;
+        }
         public Sprite CharacterImage => characterImage;
         public List<int> StarTokenCount => starTokenCount;
         public List<int> UpgradeCoin => upgradeCoin;

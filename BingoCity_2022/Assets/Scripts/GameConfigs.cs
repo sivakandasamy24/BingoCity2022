@@ -34,7 +34,7 @@ public static class UserInventoryData
     public static int UserXpcount;
     public static int UserCoins = 1000;
     public static int UserChips = 1000;
-    private static readonly Dictionary<int, int> UserTokenData = new Dictionary<int, int>();
+    public static readonly Dictionary<int, int> UserTokenData = new Dictionary<int, int>();
 
     public static void UpdateUserInventory(int inventoryId, int countGained)
     {
