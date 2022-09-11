@@ -43,3 +43,15 @@ MonoBehaviour:
     trackFile: {fileID: 8300000, guid: e4c5c5753d2cf4db2ad1e3b6fdf65435, type: 3}
   - audioName: 7
     trackFile: {fileID: 8300000, guid: 962e2e4d56dda4d7b8f5a34e3dcb8723, type: 3}
+  - audioName: 8
+    trackFile: {fileID: 8300000, guid: 325d604288523439483cc1ddd922a768, type: 3}
+  - audioName: 9
+    trackFile: {fileID: 8300000, guid: 2bce428964e7a4062b635ccae6364086, type: 3}
+  - audioName: 10
+    trackFile: {fileID: 8300000, guid: 5560927d3dfb140f7979ac98ac676491, type: 3}
+  - audioName: 11
+    trackFile: {fileID: 8300000, guid: 9125c0b5f8337428e979f9d5b8ea1ef8, type: 3}
+  - audioName: 12
+    trackFile: {fileID: 8300000, guid: 7bbb542ca907f4d15a22735a302a45ba, type: 3}
+  - audioName: 13
+    trackFile: {fileID: 8300000, guid: 25d32350be64847b691fadab49ee0e01, type: 3}

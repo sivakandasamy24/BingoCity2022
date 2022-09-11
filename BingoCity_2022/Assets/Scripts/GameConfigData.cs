@@ -51,7 +51,13 @@ namespace BingoCity
         GsPopupClose ,
         GsRoundOver ,
         GsBingo  ,
-        GsSummaryPopup  
+        GsSummaryPopup,
+        DefaultFly,
+        DefaultDamage,
+        BombFly,
+        BombDamage,
+        RocketFly,
+        RocketDamage
     }
     
     [Serializable]

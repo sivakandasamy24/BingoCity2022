@@ -17,11 +17,4 @@ namespace BingoCity
             }
         }
     }
-
-    [SerializeField]
-    public class AudioTracks
-    {
-        public string trackname;
-        public AudioClip trackFile;
-    }
 }
