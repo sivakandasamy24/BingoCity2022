@@ -13,7 +13,7 @@ public class RaidManager : MonoBehaviour
         for (int i = 0; i < Attack.Count; i++)
         {
             var attack = Instantiate(AttackCard, Content);
-            attack.GetComponent<AttackCardUi>().AssigningValues(Attack[i].AttackName,Attack[i].CardCount,Attack[i].CoinCount);
+            attack.GetComponent<AttackCardUi>().AssigningValues(Attack[i].Icon,Attack[i].CardCount,Attack[i].CoinCount);
         }
     }
       

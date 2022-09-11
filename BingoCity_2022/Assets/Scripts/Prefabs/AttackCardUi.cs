@@ -1,15 +1,16 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class AttackCardUi : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI AttackName;
+    [SerializeField] private Image AttackIcon;
     [SerializeField] private TextMeshProUGUI CardCount;
     [SerializeField] private TextMeshProUGUI CoinCount;
 
-    public void AssigningValues(string name, int cardCount, int coinCount)
+    public void AssigningValues(Sprite icon, int cardCount, int coinCount)
     {
-        AttackName.text = name;
+        AttackIcon.sprite = icon;
         CardCount.text = cardCount.ToString();
         CoinCount.text = coinCount.ToString();
     }
