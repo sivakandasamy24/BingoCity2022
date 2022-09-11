@@ -36,15 +36,15 @@ MonoBehaviour:
   - inventoryId: 5
     levelData:
     - level: 1
-      gsCardImage: {fileID: 21300000, guid: fcc629046941b48d38b5e21cd63c78de, type: 3}
-      gsSummaryIcon: {fileID: 21300000, guid: fcc629046941b48d38b5e21cd63c78de, type: 3}
+      gsCardImage: {fileID: 21300000, guid: a657e445eac9d4a648b4d2a1f7178938, type: 3}
+      gsSummaryIcon: {fileID: 21300000, guid: a657e445eac9d4a648b4d2a1f7178938, type: 3}
   - inventoryId: 6
     levelData:
     - level: 1
-      gsCardImage: {fileID: 21300000, guid: 1272269101ecc4fe897f7a858202984b, type: 3}
-      gsSummaryIcon: {fileID: 21300000, guid: 1272269101ecc4fe897f7a858202984b, type: 3}
+      gsCardImage: {fileID: 21300000, guid: 2e237b9e691c44e06aa1f6acfe856e9b, type: 3}
+      gsSummaryIcon: {fileID: 21300000, guid: 2e237b9e691c44e06aa1f6acfe856e9b, type: 3}
   - inventoryId: 7
     levelData:
     - level: 1
-      gsCardImage: {fileID: 21300000, guid: 80e95a35146844a57830a581a741b89f, type: 3}
-      gsSummaryIcon: {fileID: 21300000, guid: 80e95a35146844a57830a581a741b89f, type: 3}
+      gsCardImage: {fileID: 21300000, guid: f40386a928a814d218c19313382ae6f9, type: 3}
+      gsSummaryIcon: {fileID: 21300000, guid: f40386a928a814d218c19313382ae6f9, type: 3}

@@ -142,7 +142,7 @@ namespace BingoCity
 
         private void ShowGameSummaryPopup()
         {
-            SoundUtils.PlaySoundOnce(AudioTrackNames.SummaryPopup);
+            SoundUtils.PlaySoundOnce(AudioTrackNames.GsSummaryPopup);
             popupParent.gameObject.SetActive(true);
             buyRollPopup.SetActive(false);
             summaryPopup.SetActive(true);
@@ -159,7 +159,7 @@ namespace BingoCity
                 .Delay(TimeSpan.FromSeconds(GameConfigs.BingoAnimPlayTime <= 0 ? 0.75f : GameConfigs.BingoAnimPlayTime))
                 .Do(_ =>
                 {
-                    SoundUtils.PlaySoundOnce(AudioTrackNames.RoundOver);
+                    SoundUtils.PlaySoundOnce(AudioTrackNames.GsRoundOver);
                     roundOver.SetActive(true);
                 })
                 .Delay(TimeSpan.FromSeconds(1))
@@ -183,7 +183,7 @@ namespace BingoCity
                     popupParent.gameObject.SetActive(true);
                     buyRollCountText.text = $"Get {gameConfigData.BuyAdditionalRollCount} Extra Rolls";
                     buyRollCostText.text = gameConfigData.BuyAdditionalRollCost.ToString();
-                    SoundUtils.PlaySoundOnce(AudioTrackNames.PopupAppear);
+                    SoundUtils.PlaySoundOnce(AudioTrackNames.GsPopupAppear);
                     buyRollPopup.SetActive(true);
                 })
                 .Subscribe().AddTo(this);

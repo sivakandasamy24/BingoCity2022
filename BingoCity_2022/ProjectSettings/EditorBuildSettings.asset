@@ -11,7 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BingoCity2022_Game.unity
     guid: 84cf845f27dd54e2a88287e1b6b7b8a4
-  - enabled: 1
-    path: Assets/Scenes/BingoCity2022_DebugConfigPage.unity
-    guid: 167d32bed70d04b6bb7d84675dae3e9a
   m_configObjects: {}
