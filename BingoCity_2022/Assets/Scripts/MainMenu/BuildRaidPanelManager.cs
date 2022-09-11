@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class BuildRaidPanelManager : MonoBehaviour
 {
-    [SerializeField] private Button RaidButton;
-    [SerializeField] private Button BuildButton;
     [SerializeField] private Button GoButton;
     [SerializeField] private Button RaidBackButton;
     [SerializeField] private GameObject RaidPanel;
@@ -19,25 +17,29 @@ public class BuildRaidPanelManager : MonoBehaviour
     void Start()
     {
         backButtonClicked = OnBackButtonClicked;
-        RaidButton.onClick.AddListener(RaidButtonClicked);
-        BuildButton.onClick.AddListener(BuildButtonClicked);
         GoButton.onClick.AddListener(GoButtonClicked);
         RaidBackButton.onClick.AddListener(() => backButtonClicked.Invoke(RaidAttackPanel));
     }
 
-    private void RaidButtonClicked()
+    public void RaidButtonClicked()
     {
         RaidPanel.SetActive(true);
         BuildPanel.SetActive(false);
     }
 
-    private void BuildButtonClicked()
+    public void BuildButtonClicked()
     {
         BuildPanel.SetActive(true);
         RaidPanel.SetActive(false);
     }
 
-    private void GoButtonClicked()
+    public void MainMenuButtonClicked()
+    {
+        BuildPanel.SetActive(false);
+        RaidPanel.SetActive(false);
+    }
+
+    public void GoButtonClicked()
     {
         RaidAttackPanel.SetActive(true);
         RaidPanel.SetActive(false);
