@@ -20,9 +20,11 @@ public class BuildingData : MonoBehaviour
                 Stars.RemoveAt(Stars.Count - 1);
             }
         }
-        Attackimage.gameObject.SetActive(true);
         if (Stars.Count <= 0)
+        {
+            Attackimage.gameObject.SetActive(false);
             gameObject.SetActive(false);
+        }
     }
 
 }
