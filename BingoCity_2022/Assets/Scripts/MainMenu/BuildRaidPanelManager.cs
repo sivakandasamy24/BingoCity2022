@@ -12,6 +12,7 @@ public class BuildRaidPanelManager : MonoBehaviour
     [SerializeField] private GameObject BuildPanel;
     [SerializeField] private GameObject RaidAttackPanel;
     [SerializeField] private AttackCardScriptableObjects attack;
+    [SerializeField] private Toggle homeButton;
     private Action<GameObject> backButtonClicked;
     
     public AttackCardScriptableObjects AttackCardScriptableObjects => attack;
@@ -21,7 +22,11 @@ public class BuildRaidPanelManager : MonoBehaviour
     {
         backButtonClicked = OnBackButtonClicked;
         GoButton.onClick.AddListener(GoButtonClicked);
-        RaidBackButton.onClick.AddListener(() => backButtonClicked.Invoke(RaidAttackPanel));
+        RaidBackButton.onClick.AddListener(() =>
+        {
+            homeButton.isOn = true;
+            backButtonClicked.Invoke(RaidAttackPanel);
+        });
     }
 
     public void RaidButtonClicked()

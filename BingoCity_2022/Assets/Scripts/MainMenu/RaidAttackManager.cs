@@ -20,6 +20,7 @@ public class RaidAttackManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI BombCount;
     [SerializeField] private TextMeshProUGUI RocketCount;
     
+    
     public AttackCardScriptableObjects AttackCardScriptableObjects => Attack;
 
     private int _totalAttacksRemaining;
@@ -35,6 +36,7 @@ public class RaidAttackManager : MonoBehaviour
         UpdateAttackCount();
         WinningPanel.SetActive(false);
         
+        DefaultAttack();
         /*DefaultAttackButton.onClick.AddListener(DefaultAttack);
         BombAttackButton.onClick.AddListener(BombAttack);
         RocketAttackButton.onClick.AddListener(RocketAttack);*/
