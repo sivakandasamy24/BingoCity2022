@@ -8,9 +8,9 @@ using TMPro;
 public class RaidAttackManager : MonoBehaviour
 {
     [SerializeField] private AttackCardScriptableObjects Attack;
-    [SerializeField] private Button DefaultAttackButton;
-    [SerializeField] private Button BombAttackButton;
-    [SerializeField] private Button RocketAttackButton;
+    [SerializeField] private Toggle DefaultAttackButton;
+    [SerializeField] private Toggle BombAttackButton;
+    [SerializeField] private Toggle RocketAttackButton;
     [SerializeField] private Button[] BuildingButton;
     [SerializeField] private GameObject[] Attacks;
     [SerializeField] private GameObject WinningPanel;
@@ -34,9 +34,11 @@ public class RaidAttackManager : MonoBehaviour
         _starCount = 0;
         UpdateAttackCount();
         WinningPanel.SetActive(false);
-        DefaultAttackButton.onClick.AddListener(DefaultAttack);
+        
+        /*DefaultAttackButton.onClick.AddListener(DefaultAttack);
         BombAttackButton.onClick.AddListener(BombAttack);
-        RocketAttackButton.onClick.AddListener(RocketAttack);
+        RocketAttackButton.onClick.AddListener(RocketAttack);*/
+        
         BombCount.text = AttackCardScriptableObjects.attackData[0].CardCount.ToString();
         RocketCount.text = AttackCardScriptableObjects.attackData[1].CardCount.ToString();
         foreach (var building in BuildingButton)
@@ -63,22 +65,22 @@ public class RaidAttackManager : MonoBehaviour
     }
     private void OnDisable()
     {
-        DefaultAttackButton.onClick.RemoveListener(DefaultAttack);
+        /*DefaultAttackButton.onClick.RemoveListener(DefaultAttack);
         BombAttackButton.onClick.RemoveListener(BombAttack);
-        RocketAttackButton.onClick.RemoveListener(RocketAttack);
+        RocketAttackButton.onClick.RemoveListener(RocketAttack);*/
         foreach (var button in BuildingButton)
         {
             button.onClick.RemoveAllListeners();
         }
     }
 
-    private void DefaultAttack()
+    public void DefaultAttack()
     {
         _attackPositon = DefaultAttackButton.transform;
         _attackName = "DefaultAttack";
     }
 
-    private void BombAttack()
+    public void BombAttack()
     {
         if(AttackCardScriptableObjects.attackData[0].CardCount-1<0) return;
         
@@ -88,7 +90,7 @@ public class RaidAttackManager : MonoBehaviour
         
     }
 
-    private void RocketAttack()
+    public void RocketAttack()
     {
         if( AttackCardScriptableObjects.attackData[1].CardCount-1<0) return;
         _attackPositon = RocketAttackButton.transform;
