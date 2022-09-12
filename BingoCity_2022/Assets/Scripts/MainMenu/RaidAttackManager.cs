@@ -44,6 +44,11 @@ public class RaidAttackManager : MonoBehaviour
         {
             BuildingData buildingData = building.GetComponent<BuildingData>();
             //buildingData.ResetBuildingStats();
+
+           
+            Attack.attackBuildingData[buildingData.id].StarDestroyedCount =  0;
+            AttackCardScriptableObjects.attackBuildingData[buildingData.id].Active = true;
+            
             buildingData.SetStar(AttackCardScriptableObjects.attackBuildingData[buildingData.id].StarCount);
             buildingData.gameObject.GetComponent<Image>().sprite =
                 AttackCardScriptableObjects.attackBuildingData[buildingData.id].BuildingImages[ AttackCardScriptableObjects.attackBuildingData[buildingData.id].StarCount - 1];
@@ -75,19 +80,20 @@ public class RaidAttackManager : MonoBehaviour
 
     private void BombAttack()
     {
+        if(AttackCardScriptableObjects.attackData[0].CardCount-1<0) return;
+        
         _attackPositon = BombAttackButton.transform;
         _attackName = "BombAttack";
-        AttackCardScriptableObjects.attackData[0].CardCount--;
-        BombCount.text = AttackCardScriptableObjects.attackData[0].CardCount.ToString();
+        
         
     }
 
     private void RocketAttack()
     {
+        if( AttackCardScriptableObjects.attackData[1].CardCount-1<0) return;
         _attackPositon = RocketAttackButton.transform;
         _attackName = "RocketAttack";
-        AttackCardScriptableObjects.attackData[1].CardCount--;
-        RocketCount.text = AttackCardScriptableObjects.attackData[1].CardCount.ToString();
+        
     }
 
     private void OnBuildingClicked(Transform buildingPosition, BuildingData buildingData)
@@ -99,10 +105,16 @@ public class RaidAttackManager : MonoBehaviour
                 SoundUtils.PlaySoundOnce(AudioTrackNames.DefaultFly);
                 break;
             case "BombAttack":
+                if(AttackCardScriptableObjects.attackData[0].CardCount-1<0) return;
+                AttackCardScriptableObjects.attackData[0].CardCount--;
+                BombCount.text = AttackCardScriptableObjects.attackData[0].CardCount.ToString();
                 BuildingAttack(Attacks[1], buildingPosition, buildingData, 2);
                 SoundUtils.PlaySoundOnce(AudioTrackNames.BombFly);
                 break;
             case "RocketAttack":
+                if( AttackCardScriptableObjects.attackData[1].CardCount-1<0) return;
+                AttackCardScriptableObjects.attackData[1].CardCount--;
+                RocketCount.text = AttackCardScriptableObjects.attackData[1].CardCount.ToString();
                 BuildingAttack(Attacks[2], buildingPosition, buildingData, 3);
                 SoundUtils.PlaySoundOnce(AudioTrackNames.RocketFly);
                 break;

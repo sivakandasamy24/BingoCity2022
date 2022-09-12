@@ -14,38 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackData:
   - icon: {fileID: 21300000, guid: 7ccbeacaa359d40ffa1d15d514beea7b, type: 3}
-    cardCount: 3
+    cardCount: 80
     coinCount: 50
     starCount: 2
   - icon: {fileID: 21300000, guid: f21362efd33584731b44d83a9ff60518, type: 3}
-    cardCount: 3
+    cardCount: 90
     coinCount: 50
     starCount: 3
-  - icon: {fileID: 21300000, guid: 47f78195a9993453789bf36cf9db9aff, type: 3}
-    cardCount: 3
-    coinCount: 50
-    starCount: 4
   attackBuildingData:
   - buildingImages:
     - {fileID: 21300000, guid: 993d296493042470f82e23d3a2a1cb6d, type: 3}
     - {fileID: 21300000, guid: 0ea016fe14b13431c8b88ddb43a51f90, type: 3}
     - {fileID: 21300000, guid: f40386a928a814d218c19313382ae6f9, type: 3}
     starCount: 2
-    active: 1
-    starDestroyedCount: 0
+    active: 0
+    starDestroyedCount: 2
   - buildingImages:
     - {fileID: 21300000, guid: 2cb8f2acd85d345cdb9569cb6141aae7, type: 3}
     - {fileID: 21300000, guid: e5837b3d091014a66abfff514b5034d9, type: 3}
     - {fileID: 21300000, guid: e9d32b916ab904ce5b98d4a68c3d6594, type: 3}
     starCount: 3
     active: 1
-    starDestroyedCount: 0
+    starDestroyedCount: 2
   - buildingImages:
     - {fileID: 21300000, guid: 4cda506faac7c4f7b83a318f4b218e00, type: 3}
     - {fileID: 21300000, guid: f5526440238804a7483035a49b63f2e9, type: 3}
     - {fileID: 21300000, guid: 2768fbcee5eec42a6982eb4751552e52, type: 3}
     starCount: 1
-    active: 1
-    starDestroyedCount: 0
-  raidToken: 38
+    active: 0
+    starDestroyedCount: 1
+  raidToken: 100
   raidCost: 2
