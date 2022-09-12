@@ -11,7 +11,10 @@ public class BuildRaidPanelManager : MonoBehaviour
     [SerializeField] private GameObject RaidPanel;
     [SerializeField] private GameObject BuildPanel;
     [SerializeField] private GameObject RaidAttackPanel;
+    [SerializeField] private AttackCardScriptableObjects attack;
     private Action<GameObject> backButtonClicked;
+    
+    public AttackCardScriptableObjects AttackCardScriptableObjects => attack;
 
 
     void Start()
@@ -44,6 +47,7 @@ public class BuildRaidPanelManager : MonoBehaviour
         RaidAttackPanel.SetActive(true);
         RaidPanel.SetActive(false);
         BuildPanel.SetActive(false);
+        AttackCardScriptableObjects.RaidToken -= AttackCardScriptableObjects.RaidCost;
     }
 
     private void OnBackButtonClicked(GameObject panel)

@@ -10,8 +10,8 @@ public class AttackCardManagement : MonoBehaviour
 
     void Start()
     {
-        AttackName.text = AttackCardType.name;
-        CardCount.text = AttackCardType.CardCount.ToString();
-        CoinCount.text = AttackCardType.CoinCount.ToString();
+        //AttackName.text = AttackCardType.name;
+        //CardCount.text = AttackCardType.CardCount.ToString();
+        //CoinCount.text = AttackCardType.CoinCount.ToString();
     }
 }
