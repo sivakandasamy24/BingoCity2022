@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using BingoCity;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -95,12 +96,15 @@ public class RaidAttackManager : MonoBehaviour
         {
             case "DefaultAttack":
                 BuildingAttack(Attacks[0], buildingPosition, buildingData, 1);
+                SoundUtils.PlaySoundOnce(AudioTrackNames.DefaultFly);
                 break;
             case "BombAttack":
                 BuildingAttack(Attacks[1], buildingPosition, buildingData, 2);
+                SoundUtils.PlaySoundOnce(AudioTrackNames.BombFly);
                 break;
             case "RocketAttack":
                 BuildingAttack(Attacks[2], buildingPosition, buildingData, 3);
+                SoundUtils.PlaySoundOnce(AudioTrackNames.RocketFly);
                 break;
             default:
                 Debug.Log($"Not a proper Attack");
@@ -115,6 +119,18 @@ public class RaidAttackManager : MonoBehaviour
         var launchAttack = Instantiate(attack, _attackPositon);
         LeanTween.move(launchAttack, targetPosition, 1f).setDestroyOnComplete(true).setOnComplete(() =>
         {
+            switch (power)
+            {
+                case 1:
+                    SoundUtils.PlaySoundOnce(AudioTrackNames.DefaultDamage);
+                    break;
+                case 2:
+                    SoundUtils.PlaySoundOnce(AudioTrackNames.BombDamage);
+                    break;
+                case 3:
+                    SoundUtils.PlaySoundOnce(AudioTrackNames.RocketDamage);
+                    break;
+            }
             UpdateAttackCount();
             int starsCount = buildingData.GotHit(power, buildingData.id);
             if (starsCount >= AttackCardScriptableObjects.attackBuildingData[buildingData.id].StarCount)
